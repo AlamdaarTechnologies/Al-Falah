@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="afGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5B853" />
+      <stop offset="50%" stop-color="#D4A034" />
+      <stop offset="100%" stop-color="#B88226" />
+    </linearGradient>
+    <linearGradient id="afNavyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142B56" />
+      <stop offset="100%" stop-color="#0B1B38" />
+    </linearGradient>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background Circle (clean white / subtle glow) -->
+  <circle cx="256" cy="256" r="248" fill="#FFFFFF" />
+  
+  <!-- Outer Gold Pipe Fitting Ring -->
+  <circle cx="256" cy="256" r="195" stroke="url(#afGoldGrad)" stroke-width="26" fill="none" />
+  
+  <!-- Top Flange / Pipe Joint Fitting -->
+  <g transform="translate(256, 61)">
+    <!-- Flange Base -->
+    <rect x="-16" y="-18" width="32" height="24" rx="3" fill="url(#afGoldGrad)" />
+    <!-- Flange Lips / Screws detail -->
+    <rect x="-24" y="-12" width="8" height="12" rx="2" fill="url(#afGoldGrad)" />
+    <rect x="16" y="-12" width="8" height="12" rx="2" fill="url(#afGoldGrad)" />
+    <line x1="-16" y1="-6" x2="16" y2="-6" stroke="#9A6B15" stroke-width="2" />
+  </g>
+
+  <!-- Monogram AF -->
+  <!-- 'A' Left Leg (Navy Blue) -->
+  <path d="M192 145 L130 355 L182 355 L204 278 L238 278 L222 225 L214 250 L192 145 Z" fill="url(#afNavyGrad)" />
+  
+  <!-- 'A' Right Leg & Crossbar (Lustrous Gold) -->
+  <path d="M192 145 L208 225 L260 355 L310 355 L242 205 L228 145 Z" fill="url(#afGoldGrad)" />
+  <polygon points="172,285 272,285 260,250 184,250" fill="url(#afGoldGrad)" />
+
+  <!-- 'F' Top Arm and Middle Arm (Navy Blue) -->
+  <!-- Top Arm with angled cut -->
+  <path d="M236 155 L382 155 L354 212 L254 212 Z" fill="url(#afNavyGrad)" />
+  <!-- Middle Arm -->
+  <path d="M246 235 L346 235 L334 278 L262 278 Z" fill="url(#afNavyGrad)" />
+</svg>
