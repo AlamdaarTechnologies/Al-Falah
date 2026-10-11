@@ -10,12 +10,12 @@ export const businessInfo = {
   subtitle: "Supplying pipes, fittings, valves, sanitary fixtures, and architectural bird netting to contractors, builders, societies, and homeowners.",
 
   // WhatsApp Configuration (Replace with actual business WhatsApp number)
-  whatsappNumber: "919876543210", 
-  displayWhatsapp: "+91 98765 43210",
+  whatsappNumber: "8401742763",
+  displayWhatsapp: "+91 8401742763",
 
   // Phone & Direct Inquiries
-  phonePrimary: "+91 98765 43210",
-  phoneSecondary: "+91 91234 56789",
+  phonePrimary: "+91 8401742763",
+  phoneSecondary: "+91 8401742763",
   email: "sales@alfalahhardware.com",
 
   // Operating Hours
