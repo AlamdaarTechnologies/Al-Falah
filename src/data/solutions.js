@@ -50,7 +50,7 @@ export const divisions = [
     tagline: "Virgin HDPE Anti-Bird Netting & Stainless Steel Bird Spikes",
     description: "Specialized anti-bird protection systems for residential balconies, building duct areas, air conditioner ledges, and industrial factory ceilings.",
     imageAlt: "Anti-bird netting fitted on a building balcony",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80",
+    image: "/images/images.jpg",
     overview: "Royal Birdnet Solutions provides durable, humane bird deterrent netting and stainless steel spikes. Made from UV-treated virgin HDPE yarn and AISI-304 stainless steel wires, our netting systems keep balconies and open shafts clean without blocking natural light or ventilation.",
     advantages: [
       {
