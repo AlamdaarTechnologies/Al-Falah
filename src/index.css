@@ -28,3 +28,10 @@
     background: #94a3b8;
   }
 }
+
+@layer base {
+  /* Leave room for the sticky header when jumping to a section */
+  html {
+    scroll-padding-top: 7rem;
+  }
+}

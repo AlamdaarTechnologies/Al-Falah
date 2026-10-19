@@ -23,9 +23,9 @@ export default function ContactSection() {
 
           {/* Direct Contact Lines Card */}
           <div className="bg-white rounded border border-slate-200 p-5 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Direct Contact Lines
-            </h4>
+            </h3>
 
             <div className="space-y-2 text-sm">
               <a
@@ -67,9 +67,9 @@ export default function ContactSection() {
 
           {/* Working Hours Card */}
           <div className="bg-white rounded border border-slate-200 p-5 space-y-3 text-xs sm:text-sm">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Business Hours
-            </h4>
+            </h3>
 
             <div className="flex items-start gap-2.5">
               <Clock className="w-4 h-4 text-navy-700 shrink-0 mt-0.5" />

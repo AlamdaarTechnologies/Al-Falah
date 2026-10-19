@@ -73,19 +73,3 @@ export function getDivisionInquiryUrl(divisionName) {
 
   return buildWhatsAppLink(text);
 }
-
-/**
- * Generates WhatsApp URL for requesting a brochure
- */
-export function getBrochureRequestUrl(brochureTitle) {
-  const text = [
-    `*BROCHURE & CATALOGUE REQUEST*`,
-    `----------------------------------------`,
-    `Hello Al Falah Team,`,
-    `I would like to request the digital copy / latest rate sheet for:`,
-    `📄 *${brochureTitle}*`,
-    `Please share the PDF file on WhatsApp. Thank you!`
-  ].join('\n');
-
-  return buildWhatsAppLink(text);
-}

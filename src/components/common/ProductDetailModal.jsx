@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { X, MessageCircle, FileText } from 'lucide-react';
+import { X, MessageCircle } from 'lucide-react';
 import Button from './Button';
 import { getProductInquiryUrl } from '../../utils/whatsapp';
 
-export default function ProductDetailModal({ product, onClose, onOpenBrochure }) {
+export default function ProductDetailModal({ product, onClose }) {
   if (!product) return null;
 
   const [selectedSize, setSelectedSize] = useState(
