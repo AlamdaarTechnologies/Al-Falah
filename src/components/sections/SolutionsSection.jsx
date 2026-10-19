@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import SectionHeading from '../common/SectionHeading';
 import SolutionCard from '../common/SolutionCard';
@@ -6,8 +6,7 @@ import ProductCard from '../common/ProductCard';
 import { divisions } from '../../data/solutions';
 import { products } from '../../data/products';
 
-export default function SolutionsSection({ onOpenProductDetails }) {
-  const [openId, setOpenId] = useState(null);
+export default function SolutionsSection({ openId, setOpenId, onOpenProductDetails }) {
   const scrollRef = useRef(null);
 
   const openDivision = divisions.find((d) => d.id === openId);
@@ -26,8 +25,8 @@ export default function SolutionsSection({ onOpenProductDetails }) {
           subtitle="Choose a solution to see the products we supply."
         />
 
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-          {divisions.map((division) => (
+        <div className={`mt-8 grid gap-6 items-start ${openDivision ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
+          {(openDivision ? [openDivision] : divisions).map((division) => (
             <SolutionCard
               key={division.id}
               division={division}
@@ -39,7 +38,7 @@ export default function SolutionsSection({ onOpenProductDetails }) {
         </div>
 
         {openDivision && (
-          <div id="product-gallery" className="mt-6 rounded border border-slate-200 bg-white p-4 sm:p-6 shadow-sm">
+          <div id="product-gallery" className="mt-4 rounded border border-slate-200 bg-white p-4 sm:p-6 shadow-sm">
             <div className="flex items-center justify-between gap-3">
               <p className="text-base sm:text-lg font-bold text-navy-950">
                 {openDivision.shortName} products

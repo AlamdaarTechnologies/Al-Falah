@@ -3,16 +3,18 @@ import { ChevronDown } from 'lucide-react';
 export default function SolutionCard({ division, isOpen, onToggle, panelId }) {
   return (
     <article
-      className={`bg-white rounded border overflow-hidden shadow-sm transition-colors ${isOpen ? 'border-gold-500 ring-1 ring-gold-500' : 'border-slate-200'
+      id={`solution-${division.id}`}
+      className={`bg-white rounded border overflow-hidden shadow-sm transition-colors ${isOpen ? 'border-gold-500 ring-1 ring-gold-500 md:flex' : 'border-slate-200'
         }`}
     >
       <img
         src={division.image}
         alt={division.imageAlt}
-        className="w-full h-48 sm:h-56 object-cover bg-slate-200"
+        className={`w-full object-cover bg-slate-200 ${isOpen ? 'h-48 sm:h-56 md:h-auto md:w-80 shrink-0' : 'h-48 sm:h-56'
+          }`}
         loading="lazy"
       />
-      <div className="p-5 sm:p-6">
+      <div className={`p-5 sm:p-6 ${isOpen ? 'md:flex md:flex-col md:justify-center' : ''}`}>
         <h3 className="text-xl sm:text-2xl font-bold text-navy-950">{division.shortName}</h3>
         <p className="mt-2 text-sm text-slate-600 leading-relaxed">{division.description}</p>
         <div className="mt-4">
