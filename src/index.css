@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   body {
@@ -32,6 +32,6 @@
 @layer base {
   /* Leave room for the sticky header when jumping to a section */
   html {
-    scroll-padding-top: 7rem;
+    scroll-padding-top: 5rem;
   }
 }

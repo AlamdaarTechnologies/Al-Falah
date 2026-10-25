@@ -1,25 +1,23 @@
-import { ArrowDown } from 'lucide-react';
 import { businessInfo } from '../../data/businessInfo';
-import Button from '../common/Button';
 
 export default function Hero() {
   return (
-    <section id="home" className="bg-navy-950 text-white border-b-2 border-gold-500/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight max-w-5xl">
+    <section
+      id="home"
+      className="relative bg-navy-950 bg-cover bg-center text-white text-center border-b-4 border-teal-600"
+      style={{ backgroundImage: "url('/images/hero-banner.jpg')" }}
+    >
+      {/* Navy tint over the image so the text stays readable. Lower the numbers (e.g. /60) to show more of the image. */}
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-navy-950/90 via-navy-900/80 to-navy-700/70" />
+
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-24 sm:py-32 lg:py-40">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
           {businessInfo.brandName}
         </h1>
-        <p className="mt-5 text-lg sm:text-2xl font-bold text-slate-200 max-w-4xl">
+        <p className="mt-5 flex items-center justify-center gap-3 text-xs sm:text-sm uppercase tracking-[0.25em] text-gold-400">
+          <span aria-hidden="true" className="hidden sm:block h-px w-10 bg-gold-500" />
           {businessInfo.tagline}
         </p>
-        <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
-          {businessInfo.subtitle}
-        </p>
-        <div className="mt-8">
-          <Button as="a" href="#solutions" variant="gold" size="md" icon={ArrowDown} iconPosition="right" className="font-bold">
-            Our Solutions
-          </Button>
-        </div>
       </div>
     </section>
   );

@@ -4,10 +4,10 @@
  */
 
 export const businessInfo = {
-  brandName: "AL FALAH HARDWARE & SANITARY",
-  shortName: "AL FALAH",
-  tagline: "Wholesale & Retail Supplier of Plumbing Systems & Bird Netting Solutions",
-  subtitle: "Supplying pipes, fittings, valves, sanitary fixtures, and architectural bird netting to contractors, builders, societies, and homeowners.",
+  brandName: "Al Falah Enterprise",
+  shortName: "Al Falah",
+  tagline: "Fibre Mesh & Plumbing Sanitary Solutions",
+  subtitle: "Supplying fibre mesh, bird netting, pipes, fittings, valves and sanitary fixtures to contractors, builders, societies and homeowners.",
 
   // WhatsApp Configuration (Replace with actual business WhatsApp number)
   whatsappNumber: "8401742763",
@@ -16,6 +16,7 @@ export const businessInfo = {
   // Phone & Direct Inquiries
   phonePrimary: "+91 8401742763",
   phoneSecondary: "+91 8401742763",
+  address: "Shop No. 00, Example Market, Main Road, Vadodara, Gujarat 390000", // Add the shop address here to show it in the Contact section
   email: "sales@alfalahhardware.com",
 
   // Operating Hours

@@ -23,23 +23,25 @@ export default {
         navy: {
           50: '#f0f4f9',
           100: '#dce5f2',
-          700: '#193360',
-          800: '#112344',
-          900: '#0b1b38', // Primary midnight navy
-          950: '#060e1d',
+          600: '#1d3f66',
+          700: '#15304e', // lighter end of the cover's navy gradient
+          800: '#102747',
+          900: '#081f41', // main text / heading navy from the cover
+          950: '#051530',
         },
+        teal: {
+          500: '#0b7d90',
+          600: '#026175', // teal stripe on the cover
+          700: '#014d5d',
+        },
+        mist: '#eef2f7', // pale blue-grey background layer
         gold: {
-          50: '#fdfbf4',
-          100: '#faf4df',
-          200: '#f5e6b8',
-          300: '#eed288',
-          400: '#e2ba55',
-          500: '#d4a034', // Primary brand gold
-          600: '#b88226',
-          700: '#946419',
-          800: '#754d14',
-          900: '#4d310a',
-          950: '#2e1c04',
+          100: '#f5efe0',
+          300: '#d9c9a0',
+          400: '#c4ae7c',
+          500: '#b09f74', // muted gold from the tagline and rule
+          600: '#97844f',
+          700: '#7a6a3c',
         },
         birdnet: {
           50: '#f0fdf4',
@@ -49,7 +51,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+        sans: ['Montserrat', 'Segoe UI', 'Arial', 'sans-serif'],
       },
       borderRadius: {
         'sm': '2px',

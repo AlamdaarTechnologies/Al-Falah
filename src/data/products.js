@@ -8,7 +8,7 @@ export const products = [
   {
     id: "cpvc-pro-pipe-fittings",
     divisionId: "plumbing-solutions",
-    divisionName: "Al Falah Plumbing Solutions",
+    divisionName: "Plumbing Sanitary",
     name: "High-Pressure CPVC Pro Pipes & Fittings",
     category: "CPVC & UPVC Piping",
     shortDescription: "SDR-11 and Schedule 40/80 hot & cold potable water piping system built for high temperature and pressure resistance.",
@@ -39,7 +39,7 @@ export const products = [
   {
     id: "heavy-duty-brass-ball-valve",
     divisionId: "plumbing-solutions",
-    divisionName: "Al Falah Plumbing Solutions",
+    divisionName: "Plumbing Sanitary",
     name: "Heavy-Duty Brass Ball Valve (Forged Full-Bore)",
     category: "Heavy Brass Ball Valves",
     shortDescription: "Precision forged brass body ball valve with chrome-plated brass ball, PTFE sealing, and anti-corrosive lever.",
@@ -70,7 +70,7 @@ export const products = [
   {
     id: "upvc-underground-drainage-pipe",
     divisionId: "plumbing-solutions",
-    divisionName: "Al Falah Plumbing Solutions",
+    divisionName: "Plumbing Sanitary",
     name: "SWR UPVC Drainage & Sewerage System",
     category: "Drainage & Waste Traps",
     shortDescription: "Rubber ring & solvent joint soil, waste and rainwater (SWR) drainage pipe with UV resistance.",
@@ -101,7 +101,7 @@ export const products = [
   {
     id: "ss-floor-drain-trap",
     divisionId: "plumbing-solutions",
-    divisionName: "Al Falah Plumbing Solutions",
+    divisionName: "Plumbing Sanitary",
     name: "SS-304 Anti-Cockroach Floor Drain Jali & Trap",
     category: "Sanitaryware & Faucets",
     shortDescription: "Premium Grade 304 Stainless Steel floor grating with gravity anti-cockroach and odor barrier flap.",
@@ -132,7 +132,7 @@ export const products = [
   {
     id: "brass-angle-cock-valve",
     divisionId: "plumbing-solutions",
-    divisionName: "Al Falah Plumbing Solutions",
+    divisionName: "Plumbing Sanitary",
     name: "Brass Quarter-Turn Angle Cock with Wall Flange",
     category: "Sanitaryware & Faucets",
     shortDescription: "High-grade chrome-plated brass angle valve with imported ceramic disc cartridge for geysers and health faucets.",
@@ -163,7 +163,7 @@ export const products = [
   {
     id: "overhead-water-tank-float-valve",
     divisionId: "plumbing-solutions",
-    divisionName: "Al Falah Plumbing Solutions",
+    divisionName: "Plumbing Sanitary",
     name: "Heavy Brass Float Ball Valve for Water Tanks",
     category: "Water Tank Accessories & Floats",
     shortDescription: "Heavy brass rod mechanism with high-density polyurethane float ball for automatic tank overflow prevention.",
@@ -195,8 +195,8 @@ export const products = [
   // ================= ROYAL BIRDNET SOLUTIONS =================
   {
     id: "hdpe-balcony-anti-bird-net",
-    divisionId: "birdnet-solutions",
-    divisionName: "Royal Birdnet Solutions",
+    divisionId: "fibre-mesh",
+    divisionName: "Fibre Mesh",
     name: "High-Tensile Virgin HDPE Balcony Bird Net",
     category: "Balcony & Window Nets",
     shortDescription: "UV-stabilized 0.8mm to 1.2mm virgin HDPE knotted mesh engineered for balconies and window bird protection.",
@@ -227,13 +227,13 @@ export const products = [
   },
   {
     id: "ss-304-anti-bird-spikes",
-    divisionId: "birdnet-solutions",
-    divisionName: "Royal Birdnet Solutions",
+    divisionId: "fibre-mesh",
+    divisionName: "Fibre Mesh",
     name: "Stainless Steel 304 Anti-Bird Pigeon Spikes",
     category: "SS 304 Anti-Bird Spikes",
     shortDescription: "Marine-grade SS 304 blunt rod spikes on flexible polycarbonate base for ledges, ACs, parapets and signboards.",
     fullDescription: "Architectural grade bird repellent spikes that prevent pigeons and crows from landing, roosting, or nesting on narrow ledges, pipes, parapet walls, and commercial signage. 100% humane, zero injury design that simply denies landing footprint.",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=800&q=80",
+    image: "/images/images.jpg",
     featured: true,
     features: [
       "Grade 304 rustproof stainless steel wires (non-corrosive in marine air)",
@@ -260,8 +260,8 @@ export const products = [
   },
   {
     id: "duct-area-shaft-netting",
-    divisionId: "birdnet-solutions",
-    divisionName: "Royal Birdnet Solutions",
+    divisionId: "fibre-mesh",
+    divisionName: "Fibre Mesh",
     name: "High-Rise Building Duct Area & Shaft Netting",
     category: "Duct Area & Shaft Netting",
     shortDescription: "Heavy-gauge knotted safety and pigeon barrier netting custom-fitted for multi-storey plumbing shaft ducts.",
@@ -291,8 +291,8 @@ export const products = [
   },
   {
     id: "industrial-warehouse-bird-net",
-    divisionId: "birdnet-solutions",
-    divisionName: "Royal Birdnet Solutions",
+    divisionId: "fibre-mesh",
+    divisionName: "Fibre Mesh",
     name: "Industrial Warehouse & Factory Ceiling Netting",
     category: "Industrial Warehouse Netting",
     shortDescription: "Large-span heavy industrial netting for manufacturing plants, food grain warehouses, and aircraft hangars.",
@@ -322,8 +322,8 @@ export const products = [
   },
   {
     id: "invisible-nylon-monofilament-net",
-    divisionId: "birdnet-solutions",
-    divisionName: "Royal Birdnet Solutions",
+    divisionId: "fibre-mesh",
+    divisionName: "Fibre Mesh",
     name: "Invisible Monofilament Balcony Protection Net",
     category: "Invisible Safety Grills & Mesh",
     shortDescription: "Ultra-clear 0.7mm nylon monofilament net providing completely invisible bird barrier for luxury apartments.",
@@ -353,8 +353,8 @@ export const products = [
   },
   {
     id: "birdnet-hardware-installation-kit",
-    divisionId: "birdnet-solutions",
-    divisionName: "Royal Birdnet Solutions",
+    divisionId: "fibre-mesh",
+    divisionName: "Fibre Mesh",
     name: "Professional Birdnet Hardware & Fixing Kit",
     category: "Balcony & Window Nets",
     shortDescription: "Complete hardware set including SS 304 perimeter wire, nylon wall anchors, turnbuckles, wire clips and net ties.",

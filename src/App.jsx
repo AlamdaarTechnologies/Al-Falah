@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import FloatingWhatsApp from './components/layout/FloatingWhatsApp';
 import Hero from './components/sections/Hero';
+import AboutSection from './components/sections/AboutSection';
 import SolutionsSection from './components/sections/SolutionsSection';
-import WhatsAppInquirySection from './components/sections/WhatsAppInquirySection';
 import ContactSection from './components/sections/ContactSection';
-import ProductDetailModal from './components/common/ProductDetailModal';
 
 export default function App() {
-  const [activeProduct, setActiveProduct] = useState(null);
   const [openSolutionId, setOpenSolutionId] = useState(null);
 
   // Used by the navbar dropdown: open that solution, then scroll to the section
@@ -21,26 +18,15 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased font-sans selection:bg-brand-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-slate-800 antialiased font-sans selection:bg-gold-500 selection:text-slate-900">
       <Navbar onSelectSolution={handleSelectSolution} />
-
       <main className="flex-1">
         <Hero />
-        <SolutionsSection
-          openId={openSolutionId}
-          setOpenId={setOpenSolutionId}
-          onOpenProductDetails={setActiveProduct}
-        />
-        <WhatsAppInquirySection />
+        <AboutSection />
+        <SolutionsSection openId={openSolutionId} setOpenId={setOpenSolutionId} />
         <ContactSection />
       </main>
-
       <Footer />
-      <FloatingWhatsApp />
-
-      {activeProduct && (
-        <ProductDetailModal product={activeProduct} onClose={() => setActiveProduct(null)} />
-      )}
     </div>
   );
 }
