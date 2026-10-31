@@ -1,24 +1,26 @@
 import { businessInfo } from '../../data/businessInfo';
 
+/**
+ * Full-width banner. The height follows the image's aspect ratio (1280:762) but never
+ * exceeds the visible screen height under the header, so on laptops the whole banner
+ * fits without scrolling and there are no side gaps. object-cover only trims a little
+ * from the top/bottom on wide, short screens.
+ */
 export default function Hero() {
   return (
-    <section
-      id="home"
-      className="relative bg-navy-950 bg-cover bg-center text-white text-center border-b-4 border-teal-600"
-      style={{ backgroundImage: "url('/images/hero-banner.jpg')" }}
-    >
-      {/* Navy tint over the image so the text stays readable. Lower the numbers (e.g. /60) to show more of the image. */}
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-br from-navy-950/90 via-navy-900/80 to-navy-700/70" />
-
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 py-24 sm:py-32 lg:py-40">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-          {businessInfo.brandName}
-        </h1>
-        <p className="mt-5 flex items-center justify-center gap-3 text-xs sm:text-sm uppercase tracking-[0.25em] text-gold-400">
-          <span aria-hidden="true" className="hidden sm:block h-px w-10 bg-gold-500" />
-          {businessInfo.tagline}
-        </p>
-      </div>
+    <section id="home" className="w-full bg-white">
+      <h1 className="sr-only">{businessInfo.brandName}</h1>
+      <img
+        src="/images/hero-banner.jpg"
+        alt="Al Falah Hardware & Sanitary"
+        width={1280}
+        height={762}
+        className="block w-full object-cover object-center"
+        style={{ height: 'min(calc(100vw / 1.6798), calc(100svh - 5rem))', minHeight: '12rem' }}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+      />
     </section>
   );
 }

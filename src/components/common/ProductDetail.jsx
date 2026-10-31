@@ -2,15 +2,15 @@ import { ArrowLeft, MessageCircle } from 'lucide-react';
 import Button from './Button';
 import { getProductInquiryUrl } from '../../utils/whatsapp';
 
-function List({ title, items }) {
+function DetailBlock({ title, items }) {
   if (!items || items.length === 0) return null;
   return (
-    <>
-      <h4 className="mt-6 text-lg font-bold text-navy-900">{title}</h4>
-      <ul className="mt-2 list-disc pl-5 space-y-1.5 text-sm sm:text-base text-slate-700">
-        {items.map((item) => <li key={item}>{item}</li>)}
+    <div className="mt-5">
+      <h4 className="text-sm font-bold uppercase tracking-wider text-navy-900">{title}</h4>
+      <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-slate-600 leading-relaxed">
+        {items.map((item, idx) => <li key={idx}>{item}</li>)}
       </ul>
-    </>
+    </div>
   );
 }
 
@@ -22,26 +22,39 @@ export default function ProductDetail({ product, backLabel, onBack }) {
       <button
         type="button"
         onClick={onBack}
-        className="inline-flex items-center gap-2 text-sm font-medium text-navy-900 hover:text-teal-600"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:text-teal-700 transition-colors mb-6 group"
       >
-        <ArrowLeft className="w-4 h-4" /> Back to {backLabel}
+        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> 
+        Back to {backLabel}
       </button>
 
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full rounded-lg shadow-md object-cover bg-slate-200 md:sticky md:top-24 self-start"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        <div className="relative rounded-[22px] overflow-hidden bg-slate-100 shadow-sm md:sticky md:top-24 self-start">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-full aspect-[4/3] object-cover"
+          />
+        </div>
+
         <div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-navy-900">{product.name}</h3>
-          <h4 className="mt-5 text-lg font-bold text-navy-900">Product Description</h4>
-          <p className="mt-2 text-sm sm:text-base text-slate-700 leading-relaxed">{product.fullDescription}</p>
-          <List title="Product Specification" items={specs} />
-          <List title="Product Advantages" items={product.features} />
-          <List title="Available Sizes" items={product.sizes} />
-          <List title="Product Applications" items={product.applications} />
-          <div className="mt-8">
+          <h3 className="text-2xl sm:text-3xl font-bold text-navy-900 tracking-tight">
+            {product.name}
+          </h3>
+
+          <div className="mt-4 pt-4 border-t border-slate-100">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-navy-900">Description</h4>
+            <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+              {product.fullDescription}
+            </p>
+          </div>
+
+          <DetailBlock title="Technical Specifications" items={specs} />
+          <DetailBlock title="Key Advantages" items={product.features} />
+          <DetailBlock title="Available Sizes & Grades" items={product.sizes} />
+          <DetailBlock title="Applications" items={product.applications} />
+
+          <div className="mt-8 pt-6 border-t border-slate-100">
             <Button
               as="a"
               href={getProductInquiryUrl(product)}
@@ -50,7 +63,7 @@ export default function ProductDetail({ product, backLabel, onBack }) {
               variant="whatsapp"
               size="md"
               icon={MessageCircle}
-              className="font-bold"
+              className="font-bold shadow-md hover:shadow-lg rounded-xl"
             >
               Inquire on WhatsApp
             </Button>

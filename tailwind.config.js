@@ -51,7 +51,7 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Montserrat', 'Segoe UI', 'Arial', 'sans-serif'],
+        sans: ['Roboto', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
         'sm': '2px',

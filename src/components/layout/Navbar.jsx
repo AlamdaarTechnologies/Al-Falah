@@ -40,6 +40,7 @@ export default function Navbar({ onSelectSolution }) {
         <nav aria-label="Main" className="hidden md:flex items-center gap-1">
           <a href="#home" className={linkClass}>Home</a>
           <a href="#about" className={linkClass}>About</a>
+          <a href="#mission" className={linkClass}>Mission</a>
 
           <div className="relative" ref={dropdownRef}>
             <button
@@ -90,6 +91,7 @@ export default function Navbar({ onSelectSolution }) {
         >
           <a href="#home" onClick={() => setMenuOpen(false)} className="block px-3 py-2 text-sm font-medium rounded text-slate-800 hover:bg-slate-100">Home</a>
           <a href="#about" onClick={() => setMenuOpen(false)} className="block px-3 py-2 text-sm font-medium rounded text-slate-800 hover:bg-slate-100">About</a>
+          <a href="#mission" onClick={() => setMenuOpen(false)} className="block px-3 py-2 text-sm font-medium rounded text-slate-800 hover:bg-slate-100">Mission</a>
           <p className="px-3 pt-2 text-xs font-bold uppercase tracking-wider text-slate-500">Our Solutions</p>
           {divisions.map((d) => (
             <button

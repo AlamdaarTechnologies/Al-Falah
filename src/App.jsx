@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
+import MissionSection from './components/sections/MissionSection';
 import AboutSection from './components/sections/AboutSection';
 import SolutionsSection from './components/sections/SolutionsSection';
 import ContactSection from './components/sections/ContactSection';
@@ -23,6 +24,7 @@ export default function App() {
       <main className="flex-1">
         <Hero />
         <AboutSection />
+        <MissionSection />
         <SolutionsSection openId={openSolutionId} setOpenId={setOpenSolutionId} />
         <ContactSection />
       </main>
