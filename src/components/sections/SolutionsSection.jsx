@@ -4,8 +4,8 @@ import { Layers } from 'lucide-react';
 
 export default function SolutionsSection({ onSelect }) {
   return (
-    <section 
-      id="solutions" 
+    <section
+      id="solutions"
       className="py-16 sm:py-24 bg-[#eaecf0] border-t border-slate-300/60 relative"
     >
       <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12">
@@ -16,7 +16,7 @@ export default function SolutionsSection({ onSelect }) {
             <span>Product Divisions</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">
-            Our Solutions
+            Our Products
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
             Select a division below to explore certified materials, technical specifications, and WhatsApp availability.
