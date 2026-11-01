@@ -82,25 +82,22 @@ export default function Navbar({ onNavigate, onSelectSolution }) {
           <a href="#contact" onClick={(e) => go(e, 'contact')} className={linkClass}>Contact</a>
         </nav>
 
-        {/* Mobile: one full-width menu bar */}
-        <div className="md:hidden flex items-center justify-between py-3">
-          <span className="text-sm font-medium uppercase tracking-[0.2em] text-slate-300">Menu</span>
-          <button
-            type="button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="p-1.5 text-white hover:bg-white/10 rounded"
-            aria-label="Toggle navigation"
-            aria-expanded={menuOpen}
-          >
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+        {/* Mobile: the whole bar is one toggle button */}
+        <button
+          type="button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden flex h-12 w-full items-center justify-center text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded"
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
       {menuOpen && (
         <nav
           aria-label="Mobile"
-          className="md:hidden absolute right-0 top-full w-64 max-w-[80vw] bg-navy-950/95 backdrop-blur-sm border border-white/10 rounded-bl-lg shadow-lg px-3 py-3 space-y-1"
+          className="md:hidden absolute left-1/2 -translate-x-1/2 top-full w-[min(18rem,92vw)] bg-navy-950/95 backdrop-blur-sm border border-white/10 rounded-b-lg shadow-lg px-3 py-3 space-y-1"
         >
           {links.map((l) => (
             <a key={l.id} href={`#${l.id}`} onClick={(e) => go(e, l.id)} className={mobileItem}>{l.label}</a>

@@ -15,8 +15,7 @@ export default function Hero() {
         alt="Al Falah Hardware & Sanitary"
         width={1280}
         height={762}
-        className="block w-full object-cover object-center"
-        style={{ height: 'min(calc(100vw / 1.6798), calc(100svh - 5rem))', minHeight: '12rem' }}
+        className="block w-full object-cover object-center h-[calc(100vw/1.85)] sm:h-[min(calc(100vw/1.6798),calc(100svh-5rem))] sm:min-h-[12rem]"
         loading="eager"
         fetchPriority="high"
         decoding="async"
