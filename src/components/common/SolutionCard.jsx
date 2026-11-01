@@ -1,6 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 
-export default function SolutionCard({ division, isOpen, onToggle, panelId }) {
+export default function SolutionCard({ division, isOpen, onToggle }) {
   return (
     <article
       onClick={onToggle}
@@ -46,8 +46,6 @@ export default function SolutionCard({ division, isOpen, onToggle, panelId }) {
                 e.stopPropagation();
                 onToggle();
               }}
-              aria-expanded={isOpen}
-              aria-controls={panelId}
               className="inline-flex items-center gap-0.5 text-xs sm:text-sm font-semibold text-slate-900 hover:text-navy-900 border-b border-slate-900 pb-0.5 transition-all group-hover:translate-x-0.5"
             >
               <span>{isOpen ? 'Close' : 'View Products'}</span>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * BrandLogo Component for AL FALAH ENTERPRISE
+ * BrandLogo Component for AL FALAH HARDWARE
  * Displays the authentic AF circular pipe fitting emblem & corporate typography.
  * Supports light & dark modes, icon-only, compact and full banner variants.
  */
@@ -117,7 +117,7 @@ export default function BrandLogo({
             AL FALAH
           </span>
           <span className={`block tracking-widest uppercase font-bold mt-1 text-gold-500 ${currentSize.sub}`}>
-            ENTERPRISE
+            HARDWARE
           </span>
         </div>
       </div>
@@ -143,7 +143,7 @@ export default function BrandLogo({
           <span className={`font-bold tracking-wider uppercase leading-none mt-0.5 ${
             isLight ? 'text-gold-400' : 'text-gold-600'
           } ${currentSize.sub}`}>
-            ENTERPRISE
+            HARDWARE
           </span>
         )}
       </div>

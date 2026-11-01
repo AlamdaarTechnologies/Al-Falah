@@ -16,14 +16,14 @@ export function buildWhatsAppLink(text) {
  */
 export function getProductInquiryUrl(product, selectedSize = null) {
   const text = [
-    `*PRODUCT INQUIRY - AL FALAH ENTERPRISE*`,
+    `*PRODUCT INQUIRY - AL FALAH HARDWARE*`,
     `----------------------------------------`,
     `📦 *Product:* ${product.name}`,
     `🏢 *Division:* ${product.divisionName || product.divisionId}`,
     `🏷️ *Category:* ${product.category}`,
     selectedSize ? `📏 *Requested Size/Variant:* ${selectedSize}` : null,
     `----------------------------------------`,
-    `Hello Al Falah Enterprise, I would like to get pricing, availability, and technical details for this product. Please share the catalogue & bulk quotation.`
+    `Hello Al Falah Hardware, I would like to get pricing, availability, and technical details for this product. Please share the catalogue & bulk quotation.`
   ].filter(Boolean).join('\n');
 
   return buildWhatsAppLink(text);
@@ -36,7 +36,7 @@ export function getDivisionInquiryUrl(divisionName) {
   const text = [
     `*DIVISION INQUIRY - ${divisionName?.toUpperCase()}*`,
     `----------------------------------------`,
-    `Hello Al Falah Enterprise team,`,
+    `Hello Al Falah Hardware team,`,
     `I am interested in your *${divisionName}* product range and solutions.`,
     `Please connect with me for technical catalogue, site requirement discussion, and pricing.`
   ].join('\n');

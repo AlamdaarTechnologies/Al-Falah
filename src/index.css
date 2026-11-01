@@ -32,6 +32,6 @@
 @layer base {
   /* Leave room for the sticky header when jumping to a section */
   html {
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 4rem;
   }
 }

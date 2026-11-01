@@ -1,5 +1,4 @@
 import { Target, Lightbulb, Gem } from 'lucide-react';
-import { businessInfo } from '../../data/businessInfo';
 
 const values = [
   {
@@ -83,18 +82,6 @@ export default function MissionSection() {
             </div>
           );
         })}
-
-        <p className="pt-10 sm:pt-12 text-center text-sm sm:text-base text-slate-600">
-          Have a project or site requirement?{' '}
-          <a
-            href={`https://wa.me/91${businessInfo.whatsappNumber}?text=${encodeURIComponent('Hello Al Falah Enterprise, I would like to inquire about your products.')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium text-teal-600 hover:text-navy-900 underline underline-offset-4"
-          >
-            Get in touch on WhatsApp &rarr;
-          </a>
-        </p>
       </div>
     </section>
   );
