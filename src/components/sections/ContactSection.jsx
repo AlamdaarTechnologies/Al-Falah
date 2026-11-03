@@ -43,8 +43,9 @@ export default function ContactSection() {
             </a>
           </li>
           {businessInfo.address && (
-            <li className="inline-flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-gold-400" />{businessInfo.address}
+            <li className="flex items-start justify-center gap-2">
+              <MapPin aria-hidden="true" className="w-4 h-4 mt-1 shrink-0 text-gold-400" />
+              <span className="text-left">{businessInfo.address}</span>
             </li>
           )}
         </ul>
