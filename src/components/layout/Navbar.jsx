@@ -115,7 +115,7 @@ export default function Navbar({ onNavigate, onSelectSolution, inProductView = f
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex h-12 w-full items-center justify-center text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded"
+          className="md:hidden flex h-12 w-full items-center justify-end text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded"
           aria-label="Toggle navigation"
           aria-expanded={menuOpen}
         >
@@ -126,7 +126,7 @@ export default function Navbar({ onNavigate, onSelectSolution, inProductView = f
       {menuOpen && (
         <nav
           aria-label="Mobile"
-          className="md:hidden absolute left-1/2 -translate-x-1/2 top-full w-[min(18rem,92vw)] bg-navy-950/95 backdrop-blur-sm border border-white/10 rounded-b-lg shadow-lg px-3 py-3 space-y-1"
+          className="md:hidden absolute right-0 top-full w-[min(18rem,92vw)] bg-navy-950/95 backdrop-blur-sm border border-white/10 rounded-bl-lg shadow-lg px-3 py-3 space-y-1"
         >
           {links.map((l) => (
             <a key={l.id} href={`#${l.id}`} onClick={(e) => go(e, l.id)} className={mobileItem(active === l.id)}>{l.label}</a>
