@@ -4,11 +4,10 @@ export default function SolutionCard({ division, isOpen, onToggle }) {
   return (
     <article
       onClick={onToggle}
-      className={`group relative bg-white rounded-[28px] sm:rounded-[32px] p-3.5 sm:p-4 pb-5 sm:pb-6 cursor-pointer border border-white/90 transition-all duration-300 ease-out flex flex-col justify-between ${
-        isOpen
+      className={`group relative bg-white rounded-[28px] sm:rounded-[32px] p-3.5 sm:p-4 pb-5 sm:pb-6 cursor-pointer border border-white/90 transition-all duration-300 ease-out flex flex-col justify-between ${isOpen
           ? 'ring-2 ring-navy-900/40 shadow-[0_20px_45px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.05)] -translate-y-1'
           : 'shadow-[0_12px_32px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.03)] hover:shadow-[0_22px_45px_rgba(0,0,0,0.11),0_6px_14px_rgba(0,0,0,0.05)] hover:-translate-y-2'
-      }`}
+        }`}
     >
       {/* Top Image Container with Inner Smooth Curves & Badges (Matching Screenshot) */}
       <div className="relative w-full aspect-[4/3] rounded-[20px] sm:rounded-[22px] overflow-hidden bg-slate-100 shadow-inner">
@@ -26,9 +25,11 @@ export default function SolutionCard({ division, isOpen, onToggle }) {
         </div>
 
         {/* Bottom Banner Strip Inside Image (Matching 'Free Delivery' green strip in screenshot) */}
-        <div className={`absolute bottom-0 inset-x-0 ${division.bannerColor} backdrop-blur-sm py-2 px-3 text-center text-[11px] sm:text-xs font-medium tracking-wide flex items-center justify-center gap-1.5`}>
-          <span>{division.bannerText}</span>
-        </div>
+        {division.bannerText && (
+          <div className={`absolute bottom-0 inset-x-0 ${division.bannerColor || ''} backdrop-blur-sm py-2 px-3 text-center text-[11px] sm:text-xs font-medium tracking-wide flex items-center justify-center gap-1.5`}>
+            <span>{division.bannerText}</span>
+          </div>
+        )}
       </div>
 
       {/* Card Details Body */}
@@ -36,7 +37,7 @@ export default function SolutionCard({ division, isOpen, onToggle }) {
         <div>
           {/* Header row with Title and 'Order Now ↗' styled action link */}
           <div className="flex items-center justify-between gap-2">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-bold leading-tight text-slate-900 tracking-tight">
               {division.shortName}
             </h3>
 
@@ -54,9 +55,11 @@ export default function SolutionCard({ division, isOpen, onToggle }) {
           </div>
 
           {/* Description */}
-          <p className="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed font-normal line-clamp-2">
-            {division.description}
-          </p>
+          {division.description && (
+            <p className="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed font-normal line-clamp-2">
+              {division.description}
+            </p>
+          )}
         </div>
 
         {/* Feature Pills Row (Matching matcha pills row in screenshot) */}

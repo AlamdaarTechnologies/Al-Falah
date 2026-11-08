@@ -48,7 +48,7 @@ const blocks = [
 
 export default function MissionSection() {
   return (
-    <section id="mission" className="bg-mist py-16 sm:py-20 lg:py-24 border-t-4 border-teal-600">
+    <section id="mission" className="bg-transparent py-16 sm:py-20 lg:py-24 border-t border-slate-200/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 divide-y divide-teal-600/30">
         {blocks.map((b) => {
           const Icon = b.icon;

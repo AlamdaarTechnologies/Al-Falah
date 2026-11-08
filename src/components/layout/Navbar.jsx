@@ -8,99 +8,203 @@ const links = [
   { id: 'mission', label: 'Mission' },
 ];
 
-const linkClass = (active) =>
-  `relative px-3 lg:px-4 py-2 text-sm font-medium uppercase tracking-[0.12em] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 ${active
-    ? 'text-[#f0b429] after:absolute after:inset-x-3 lg:after:inset-x-4 after:bottom-0 after:h-0.5 after:rounded after:bg-[#f0b429]'
-    : 'text-slate-200 hover:text-[#f0b429]'
-  }`;
-const mobileItem = (active) =>
-  `block w-full text-left px-3 py-2.5 text-sm font-medium rounded hover:bg-white/10 hover:text-[#f0b429] ${active ? 'text-[#f0b429] bg-white/5' : 'text-slate-100'
-  }`;
-
-export default function Navbar({ onNavigate, onSelectSolution, inProductView = false }) {
+export default function Navbar({
+  onNavigate,
+  onSelectSolution,
+  inProductView = false
+}) {
   const [active, setActive] = useState('home');
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const navbarRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  // Highlight the link of the section currently on screen (or "Our Solutions" in the product view)
+  // Automatically highlight the section currently being viewed
   useEffect(() => {
-    if (inProductView) { setActive('solutions'); return; }
-    const ids = ['home', 'about', 'mission', 'solutions', 'inquiry', 'contact'];
-    const update = () => {
-      const y = 120; // just below the sticky bar
-      let current = 'home';
-      ids.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= y) current = id;
+    if (inProductView) {
+      setActive('solutions');
+      return;
+    }
+
+    const ids = [
+      'home',
+      'about',
+      'mission',
+      'solutions',
+      'inquiry',
+      'contact'
+    ];
+
+    let ticking = false;
+
+    const updateActiveSection = () => {
+      if (ticking) return;
+
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const offset = 120;
+        let current = 'home';
+
+        ids.forEach((id) => {
+          const element = document.getElementById(id);
+
+          if (
+            element &&
+            element.getBoundingClientRect().top <= offset
+          ) {
+            current = id;
+          }
+        });
+
+        // Highlight Contact when reaching the bottom
+        if (
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 10
+        ) {
+          current = 'contact';
+        }
+
+        setActive(
+          current === 'inquiry' ? 'contact' : current
+        );
+
+        ticking = false;
       });
-      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = 'contact';
-      setActive(current === 'inquiry' ? 'contact' : current);
     };
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
+
+    updateActiveSection();
+
+    window.addEventListener('scroll', updateActiveSection, {
+      passive: true
+    });
+
+    window.addEventListener('resize', updateActiveSection);
+
     return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
     };
   }, [inProductView]);
 
-  // Close the dropdown on outside click or Escape
+  // Close menus when clicking outside or pressing Escape
   useEffect(() => {
-    const onClick = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) setDropdownOpen(false);
+    const handleOutsideClick = (e) => {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(e.target)
+      ) {
+        setMenuOpen(false);
+      }
+
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target)
+      ) {
+        setDropdownOpen(false);
+      }
     };
-    const onKey = (e) => e.key === 'Escape' && (setDropdownOpen(false), setMenuOpen(false));
-    document.addEventListener('mousedown', onClick);
-    document.addEventListener('keydown', onKey);
+
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('keydown', handleEscape);
+
     return () => {
-      document.removeEventListener('mousedown', onClick);
-      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('keydown', handleEscape);
     };
   }, []);
 
   const go = (e, id) => {
     e.preventDefault();
+
     setMenuOpen(false);
+    setDropdownOpen(false);
+
     onNavigate(id);
   };
+
   const pickSolution = (id) => {
     setDropdownOpen(false);
     setMenuOpen(false);
+
     onSelectSolution(id);
   };
 
+  const navLinkClass = (id) =>
+    `relative h-full flex items-center px-1 text-xs lg:text-[13px] font-semibold uppercase tracking-[0.12em] transition-colors duration-200 ${
+      active === id
+        ? 'text-[#f0b429]'
+        : 'text-slate-200 hover:text-[#f0b429]'
+    }`;
+
+  const activeIndicator = (
+    <span className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#f0b429] shadow-[0_0_8px_rgba(240,180,41,0.6)]" />
+  );
+
   return (
-    <header className="sticky top-0 z-40 w-full bg-navy-950 border-b border-white/10 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Desktop / tablet: links centred across the bar */}
-        <nav aria-label="Main" className="hidden md:flex items-center justify-center gap-1 lg:gap-4 py-3.5">
-          {links.map((l) => (
-            <a key={l.id} href={`#${l.id}`} onClick={(e) => go(e, l.id)} className={linkClass(active === l.id)}>{l.label}</a>
+    <header
+      ref={navbarRef}
+      className="sticky top-0 z-[100] w-full bg-[#08172c] border-b border-white/10 shadow-md transition-colors"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Desktop & Tablet Navbar */}
+        <nav
+          aria-label="Main navigation"
+          className="hidden md:flex items-center justify-center gap-6 lg:gap-10 h-14 text-white"
+        >
+          {links.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={(e) => go(e, link.id)}
+              aria-current={active === link.id ? 'location' : undefined}
+              className={navLinkClass(link.id)}
+            >
+              {link.label}
+              {active === link.id && activeIndicator}
+            </a>
           ))}
 
-          <div className="relative" ref={dropdownRef}>
+          {/* Products Dropdown */}
+          <div className="relative h-full flex items-center" ref={dropdownRef}>
             <button
               type="button"
-              onClick={() => setDropdownOpen(!dropdownOpen)}
+              onClick={() => setDropdownOpen((prev) => !prev)}
               aria-expanded={dropdownOpen}
               aria-haspopup="true"
-              className={`${linkClass(active === 'solutions')} inline-flex items-center gap-1`}
+              className={`relative h-full flex items-center px-1 text-xs lg:text-[13px] font-semibold uppercase tracking-[0.12em] gap-1.5 transition-colors duration-200 ${
+                active === 'solutions'
+                  ? 'text-[#f0b429]'
+                  : 'text-slate-200 hover:text-[#f0b429]'
+              }`}
             >
-              Our Solutions
-              <ChevronDown className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              Our Products
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                  dropdownOpen ? 'rotate-180 text-[#f0b429]' : ''
+                }`}
+              />
+              {active === 'solutions' && activeIndicator}
             </button>
+
             {dropdownOpen && (
-              <ul className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-60 bg-navy-950 border border-white/10 rounded shadow-lg py-1 z-50">
-                {divisions.map((d) => (
-                  <li key={d.id}>
+              <ul className="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-64 max-h-[70vh] overflow-y-auto bg-[#08172c] border border-white/15 rounded-lg shadow-2xl py-2 z-[110]">
+                {divisions.map((division) => (
+                  <li key={division.id}>
                     <button
                       type="button"
-                      onClick={() => pickSolution(d.id)}
-                      className="w-full text-left px-4 py-2.5 text-sm font-medium text-slate-100 hover:bg-white/10 hover:text-[#f0b429]"
+                      onClick={() => pickSolution(division.id)}
+                      className="w-full text-left px-5 py-2.5 text-xs sm:text-sm font-semibold tracking-wide text-slate-100 hover:bg-white/10 hover:text-[#f0b429] transition-colors"
                     >
-                      {d.shortName}
+                      {division.shortName}
                     </button>
                   </li>
                 ))}
@@ -108,36 +212,83 @@ export default function Navbar({ onNavigate, onSelectSolution, inProductView = f
             )}
           </div>
 
-          <a href="#contact" onClick={(e) => go(e, 'contact')} className={linkClass(active === 'contact')}>Contact</a>
+          {/* Contact */}
+          <a
+            href="#contact"
+            onClick={(e) => go(e, 'contact')}
+            aria-current={active === 'contact' ? 'location' : undefined}
+            className={navLinkClass('contact')}
+          >
+            Contact
+            {active === 'contact' && activeIndicator}
+          </a>
         </nav>
 
-        {/* Mobile: the whole bar is one toggle button */}
-        <button
-          type="button"
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex h-12 w-full items-center justify-end text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded"
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-        >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Mobile Bar */}
+        <div className="md:hidden flex items-center justify-between h-14">
+          <span className="text-xs font-bold uppercase tracking-[0.15em] text-[#f0b429]">
+            {active === 'solutions' ? 'Products' : active.toUpperCase()}
+          </span>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            className="p-1.5 rounded-md text-white hover:text-[#f0b429] hover:bg-white/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f0b429]"
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
+      {/* Mobile Menu Dropdown */}
       {menuOpen && (
         <nav
-          aria-label="Mobile"
-          className="md:hidden absolute right-0 top-full w-[min(18rem,92vw)] bg-navy-950/95 backdrop-blur-sm border border-white/10 rounded-bl-lg shadow-lg px-3 py-3 space-y-1"
+          aria-label="Mobile navigation"
+          className="md:hidden w-full bg-[#08172c] border-t border-white/10 shadow-2xl px-5 py-4 space-y-1.5 max-h-[75vh] overflow-y-auto"
         >
-          {links.map((l) => (
-            <a key={l.id} href={`#${l.id}`} onClick={(e) => go(e, l.id)} className={mobileItem(active === l.id)}>{l.label}</a>
+          {links.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={(e) => go(e, link.id)}
+              className={`block px-4 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors ${
+                active === link.id
+                  ? 'text-[#f0b429] bg-white/10'
+                  : 'text-slate-100 hover:bg-white/5 hover:text-[#f0b429]'
+              }`}
+            >
+              {link.label}
+            </a>
           ))}
-          <p className="px-3 pt-2 text-xs font-bold uppercase tracking-wider text-slate-400">Our Solutions</p>
-          {divisions.map((d) => (
-            <button key={d.id} type="button" onClick={() => pickSolution(d.id)} className={`${mobileItem(active === 'solutions')} pl-6`}>
-              {d.shortName}
+
+          <div className="pt-3 pb-1 px-4 text-[10px] font-bold uppercase tracking-[0.2em] text-[#f0b429]">
+            Our Products
+          </div>
+
+          {divisions.map((division) => (
+            <button
+              key={division.id}
+              type="button"
+              onClick={() => pickSolution(division.id)}
+              className="w-full text-left px-5 py-2.5 text-xs font-medium text-slate-200 hover:text-[#f0b429] hover:bg-white/5 rounded-lg transition-colors"
+            >
+              {division.shortName}
             </button>
           ))}
-          <a href="#contact" onClick={(e) => go(e, 'contact')} className={mobileItem(active === 'contact')}>Contact</a>
+
+          <a
+            href="#contact"
+            onClick={(e) => go(e, 'contact')}
+            className={`block px-4 py-2.5 text-xs font-semibold uppercase tracking-wider rounded-lg transition-colors ${
+              active === 'contact'
+                ? 'text-[#f0b429] bg-white/10'
+                : 'text-slate-100 hover:bg-white/5 hover:text-[#f0b429]'
+            }`}
+          >
+            Contact
+          </a>
         </nav>
       )}
     </header>

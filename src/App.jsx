@@ -59,26 +59,26 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-slate-800 antialiased font-sans selection:bg-gold-500 selection:text-slate-900">
+    <div className="relative min-h-screen flex flex-col bg-[#fafafa] text-slate-800 antialiased font-sans selection:bg-gold-500 selection:text-slate-900 overflow-x-hidden">
       <Navbar onNavigate={goTo} onSelectSolution={selectSolution} inProductView={!!selected} />
       <main className="flex-1">
-        {selected ? (
-          <>
-            <ProductView key={selected.id} division={selected} onBack={() => leaveProductView('solutions')} />
-            <InquirySection solutionName={selected.shortName} />
-          </>
-        ) : (
-          <>
-            <Hero />
-            <AboutSection />
-            <MissionSection />
-            <SolutionsSection onSelect={selectSolution} />
-            <InquirySection />
-            <ContactSection />
-          </>
-        )}
-      </main>
-      <Footer />
+          {selected ? (
+            <>
+              <ProductView key={selected.id} division={selected} />
+              <InquirySection solutionName={selected.shortName} />
+            </>
+          ) : (
+            <>
+              <Hero />
+              <AboutSection />
+              <MissionSection />
+              <SolutionsSection onSelect={selectSolution} />
+              <InquirySection />
+              <ContactSection />
+            </>
+          )}
+        </main>
+        <Footer />
     </div>
   );
 }

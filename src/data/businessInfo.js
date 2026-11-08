@@ -4,7 +4,7 @@
  */
 
 export const businessInfo = {
-  brandName: "Al Falah Hardware",
+  brandName: "Al Falah Hardware & Sanitary",
   shortName: "Al Falah",
   tagline: "Fibre Mesh & Plumbing Sanitary Solutions",
   subtitle: "Supplying fibre mesh, bird netting, pipes, fittings, valves and sanitary fixtures to contractors, builders, societies and homeowners.",

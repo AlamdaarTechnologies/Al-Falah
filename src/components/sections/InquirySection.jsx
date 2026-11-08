@@ -6,7 +6,7 @@ export default function InquirySection({ solutionName }) {
     : 'Hello Al Falah Hardware, I would like to inquire about your products.';
 
   return (
-    <section id="inquiry" aria-label="WhatsApp inquiry" className="bg-white py-12 sm:py-16 border-t border-slate-200">
+    <section id="inquiry" aria-label="WhatsApp inquiry" className="bg-transparent py-12 sm:py-16 border-t border-slate-200/80">
       <p className="max-w-3xl mx-auto px-4 sm:px-6 text-center text-base sm:text-lg text-slate-600">
         Have a product or site requirement?{' '}
         <a

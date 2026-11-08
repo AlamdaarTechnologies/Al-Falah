@@ -6,11 +6,11 @@
 export const products = [
   // ================= AL FALAH PLUMBING SOLUTIONS =================
   {
-    id: "cpvc-pro-pipe-fittings",
-    divisionId: "plumbing-solutions",
-    divisionName: "Plumbing Sanitary",
-    name: "High-Pressure CPVC Pro Pipes & Fittings",
-    category: "CPVC & UPVC Piping",
+    id: "Garden Fencing Kits",
+    divisionId: "plumbing-sanitary",
+    divisionName: "PLUMBING AND SANITARY",
+    name: "Garden Fencing Kits",
+    category: "Garden Fencing Kits",
     shortDescription: "SDR-11 and Schedule 40/80 hot & cold potable water piping system built for high temperature and pressure resistance.",
     fullDescription: "Engineered with virgin chlorination polymer compounds, our CPVC Pro piping system is ideal for residential, commercial hot and cold water distribution. Immune to electrolytic corrosion and mineral encrustation, ensuring smooth fluid dynamics and zero degradation over decades.",
     image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80",
@@ -38,8 +38,8 @@ export const products = [
   },
   {
     id: "heavy-duty-brass-ball-valve",
-    divisionId: "plumbing-solutions",
-    divisionName: "Plumbing Sanitary",
+    divisionId: "plumbing-sanitary",
+    divisionName: "PLUMBING AND SANITARY",
     name: "Heavy-Duty Brass Ball Valve (Forged Full-Bore)",
     category: "Heavy Brass Ball Valves",
     shortDescription: "Precision forged brass body ball valve with chrome-plated brass ball, PTFE sealing, and anti-corrosive lever.",
@@ -69,8 +69,8 @@ export const products = [
   },
   {
     id: "upvc-underground-drainage-pipe",
-    divisionId: "plumbing-solutions",
-    divisionName: "Plumbing Sanitary",
+    divisionId: "plumbing-sanitary",
+    divisionName: "PLUMBING AND SANITARY",
     name: "SWR UPVC Drainage & Sewerage System",
     category: "Drainage & Waste Traps",
     shortDescription: "Rubber ring & solvent joint soil, waste and rainwater (SWR) drainage pipe with UV resistance.",
@@ -100,8 +100,8 @@ export const products = [
   },
   {
     id: "ss-floor-drain-trap",
-    divisionId: "plumbing-solutions",
-    divisionName: "Plumbing Sanitary",
+    divisionId: "plumbing-sanitary",
+    divisionName: "PLUMBING AND SANITARY",
     name: "SS-304 Anti-Cockroach Floor Drain Jali & Trap",
     category: "Sanitaryware & Faucets",
     shortDescription: "Premium Grade 304 Stainless Steel floor grating with gravity anti-cockroach and odor barrier flap.",
@@ -131,8 +131,8 @@ export const products = [
   },
   {
     id: "brass-angle-cock-valve",
-    divisionId: "plumbing-solutions",
-    divisionName: "Plumbing Sanitary",
+    divisionId: "plumbing-sanitary",
+    divisionName: "PLUMBING AND SANITARY",
     name: "Brass Quarter-Turn Angle Cock with Wall Flange",
     category: "Sanitaryware & Faucets",
     shortDescription: "High-grade chrome-plated brass angle valve with imported ceramic disc cartridge for geysers and health faucets.",
@@ -162,8 +162,8 @@ export const products = [
   },
   {
     id: "overhead-water-tank-float-valve",
-    divisionId: "plumbing-solutions",
-    divisionName: "Plumbing Sanitary",
+    divisionId: "plumbing-sanitary",
+    divisionName: "PLUMBING AND SANITARY",
     name: "Heavy Brass Float Ball Valve for Water Tanks",
     category: "Water Tank Accessories & Floats",
     shortDescription: "Heavy brass rod mechanism with high-density polyurethane float ball for automatic tank overflow prevention.",
@@ -195,191 +195,339 @@ export const products = [
   // ================= ROYAL BIRDNET SOLUTIONS =================
   {
     id: "hdpe-balcony-anti-bird-net",
-    divisionId: "fibre-mesh",
-    divisionName: "Fibre Mesh",
-    name: "High-Tensile Virgin HDPE Balcony Bird Net",
-    category: "Balcony & Window Nets",
-    shortDescription: "UV-stabilized 0.8mm to 1.2mm virgin HDPE knotted mesh engineered for balconies and window bird protection.",
-    fullDescription: "Our signature Royal Birdnet HDPE netting provides an impenetrable, aesthetic barrier against pigeons, sparrows, and other nuisance birds without blocking sunlight or breeze. Built from 100% virgin polymer with high UV stabilization, guaranteed against sun rot and brittleness.",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "GARDEN FENCING NETS",
+    category: "Garden Fencing",
+
+    fullDescription: "Garden Fencing Nets offer a modern, efficient and user-friendly fencing solution. Designed as easy-to-install DIY kits, they provide a convenient option for households, architects, landscapers and large-scale users such as hotels, resorts and sports complexes. These fencing systems combine practicality with versatility, delivering a reliable and aesthetically pleasing fencing solution suitable for a wide range of applications.",
+
+    image: "/images/gardenfence (2).jpg",
     featured: true,
+
     features: [
-      "100% Virgin High Density Polyethylene (HDPE) monofilament",
-      "High UV resistance – tested for 3+ years harsh sunlight endurance",
-      "Knot-stability prevents mesh distortion under bird pressure",
-      "Available in discreet Translucent White and Invisible Garware Black"
+      "Long-lasting durability",
+      "Highly resistant to corrosion, even in coastal environments",
+      "Manufactured using high-quality HDPE",
+      "Components coated with corrosion-resistant materials",
+      "Easy to install and cost-effective solution"
     ],
+
     specifications: {
-      "Material": "Virgin High Density Polyethylene (HDPE)",
-      "Twine Thickness": "0.80mm / 1.00mm / 1.25mm (15 ply / 18 ply)",
-      "Mesh Size": "25mm x 25mm (1\") / 35mm x 35mm / 50mm x 50mm (2\")",
-      "Breaking Strength": "23.5 kg per individual twine",
-      "UV Life Expectancy": "3 to 5+ Years Outdoor Exposure",
-      "Color Options": "Pure White, Translucent Natural, Pitch Black"
+      "Material": "High Density Polyethylene (HDPE)",
+      "Available Heights": "1 m, 1.2 m, 1.5 m, 2 m, 2.1 m, 2.5 m, 3 m",
+      "Roll Length": "25 m",
+      "Packaging Options": "Plastic Bags, Woven Bags, Carton Packaging"
     },
+
     applications: [
-      "Apartment balconies and French windows",
-      "AC outdoor unit ledges and window chajjas",
-      "Terrace perimeters and open sit-out areas",
-      "Society facade protection"
+      "Garden fencing",
+      "Poultry farms",
+      "Construction sites",
+      "Sports fields",
+      "Balconies",
+      "Railings and safety barriers"
     ],
-    sizes: ["Custom Cut Rolls (10ft x 50ft, 10ft x 100ft, 15ft x 50ft, 20ft x 100ft)"]
+
+    sizes: [
+      "1 m Height x 25 m Roll",
+      "1.2 m Height x 25 m Roll",
+      "1.5 m Height x 25 m Roll",
+      "2 m Height x 25 m Roll",
+      "2.1 m Height x 25 m Roll",
+      "2.5 m Height x 25 m Roll",
+      "3 m Height x 25 m Roll"
+    ]
   },
+
   {
     id: "ss-304-anti-bird-spikes",
-    divisionId: "fibre-mesh",
-    divisionName: "Fibre Mesh",
-    name: "Stainless Steel 304 Anti-Bird Pigeon Spikes",
-    category: "SS 304 Anti-Bird Spikes",
-    shortDescription: "Marine-grade SS 304 blunt rod spikes on flexible polycarbonate base for ledges, ACs, parapets and signboards.",
-    fullDescription: "Architectural grade bird repellent spikes that prevent pigeons and crows from landing, roosting, or nesting on narrow ledges, pipes, parapet walls, and commercial signage. 100% humane, zero injury design that simply denies landing footprint.",
-    image: "/images/images.jpg",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Bird Protection Nets",
+    category: "Bird Protection Nets",
+
+    fullDescription: "We offer high-quality Bird Nets designed to provide reliable protection for homes, balconies, buildings, industries, and open spaces. Available in multiple sizes, colours, and ply options to meet different requirements.",
+
+    image: "/images/birdnet.jpeg",
+    detailImage: "/images/birdnetcolors.jpeg",
     featured: true,
+
     features: [
-      "Grade 304 rustproof stainless steel wires (non-corrosive in marine air)",
-      "High-grade virgin UV-resistant polycarbonate base strip",
-      "Easy installation with outdoor silicone sealant or screws",
-      "Flexible base bends over curved surfaces and round pipes"
+      "Quality & Versatility",
+      "Whether you need a small ready-made net or a large roll for commercial or industrial applications, we offer multiple options to suit your requirements."
     ],
+
     specifications: {
-      "Spike Material": "AISI 304 Marine Grade Stainless Steel (1.4mm Dia)",
-      "Base Material": "100% Virgin UV Stabilized Polycarbonate",
-      "Spike Height": "115mm (4.5 inches)",
-      "Strip Length": "300mm / 500mm (1.64 ft per strip)",
-      "Coverage Width": "100mm to 160mm spread",
-      "Rod Density": "32 to 40 spikes per foot (3-row / 4-row configuration)"
+      "Ready-Made Bird Net Sizes": [
+        "8 FT × 6 FT",
+        "8 FT × 12 FT",
+        "10 FT × 6 FT",
+        "10 FT × 8 FT",
+        "10 FT × 10 FT",
+        "10 FT × 12 FT",
+        "10 FT × 15 FT",
+        "10 FT × 20 FT"
+      ],
+
+      "Bird Net Rolls": [
+        "2 MTR × 30 MTR",
+        "2.5 MTR × 30 MTR",
+        "3 MTR × 30 MTR",
+        "4.5 MTR × 30 MTR",
+        "6 MTR × 30 MTR",
+        "10 MTR × 30 MTR"
+      ],
+
+      "Available Colours": "White | Black | Green | Blue",
+
+      "Available Ply": "12 Ply | 15 Ply | 18 Ply | 24 Ply"
     },
-    applications: [
-      "Parapet walls and terrace boundary railings",
-      "Split AC outdoor compressor tops",
-      "Window frames and architectural stone cornices",
-      "Commercial shop signboards and billboard tops",
-      "Factory roof beams and light fixtures"
-    ],
-    sizes: ["3-Row Standard (500mm)", "4-Row Wide (500mm)", "5-Row Dense Commercial (500mm)"]
+
+    additionalProduct: {
+      name: "Nylon Bird Protection Net",
+      image: "/images/nylonbird.jpeg",
+      description: "Nylon Transparent Bird Net , Ply 0.60 and 0.80 , 3 MTR x 30 MTR"
+    },
   },
+
+  // ===== NEW CATALOGUE (placeholder copy and images: replace with the client's real content) =====
+  // Main cards open: a subcategory grid (`subcategories`), a multi-section page (`sections`) or the standard detail page.
   {
-    id: "duct-area-shaft-netting",
-    divisionId: "fibre-mesh",
-    divisionName: "Fibre Mesh",
-    name: "High-Rise Building Duct Area & Shaft Netting",
-    category: "Duct Area & Shaft Netting",
-    shortDescription: "Heavy-gauge knotted safety and pigeon barrier netting custom-fitted for multi-storey plumbing shaft ducts.",
-    fullDescription: "Multi-storey building plumbing shafts and ventilation ducts are prime nesting grounds for pigeons, creating hygiene hazards and foul odors. Our heavy-duty duct netting covers large vertical openings securely with stainless steel perimeter wire ropes.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
-    featured: false,
-    features: [
-      "High tensile knotted mesh withstands strong vertical wind gusts",
-      "Completely seals building ventilation cut-outs from top to bottom",
-      "Flame retardant & non-conductive properties for safety around wiring",
-      "Enables continuous unhindered air exhaust for plumbing pipes"
+    id: "sports-net",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Sports Net",
+    category: "Sports Net",
+    image: "/images/products/sports-net.jpg",
+    subcategories: [
+      { id: "cricket-net", name: "Cricket Net", image: "/images/products/cricket-net.jpg" },
+      { id: "turf-net", name: "Turf Net", image: "/images/products/turf-net.jpg" },
+      { id: "badminton-net", name: "Badminton Net", image: "/images/products/badminton-net.jpg" },
+      { id: "volleyball-net", name: "Volleyball Net", image: "/images/products/volleyball-net.jpg" },
     ],
-    specifications: {
-      "Material": "Heavy Gauge Multi-Filament Virgin HDPE",
-      "Mesh Dimension": "35mm x 35mm Square Mesh",
-      "Perimeter System": "3mm SS 304 Wire Rope with Turnbuckles & Eye Bolts",
-      "Tensile Capacity": "45 kg knot breaking strength",
-      "Weather Resistance": "100% Waterproof, Mold-resistant & Chemically Inert"
-    },
-    applications: [
-      "Residential high-rise building plumbing duct shafts",
-      "Commercial office building ventilation cut-outs",
-      "Hospital & hotel light well shafts",
-      "Lift core exterior voids"
-    ],
-    sizes: ["Custom Site Fabrication (Supplied in Bulk Rolls or Pre-Stitched Panels)"]
   },
+
   {
-    id: "industrial-warehouse-bird-net",
-    divisionId: "fibre-mesh",
-    divisionName: "Fibre Mesh",
-    name: "Industrial Warehouse & Factory Ceiling Netting",
-    category: "Industrial Warehouse Netting",
-    shortDescription: "Large-span heavy industrial netting for manufacturing plants, food grain warehouses, and aircraft hangars.",
-    fullDescription: "Specialized large-area netting system installed under industrial roof trusses and purlins to prevent bird droppings from contaminating manufacturing lines, pharmaceutical plants, food storage, and packaged goods.",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
-    featured: false,
-    features: [
-      "Lightweight yet ultra-strong structure causes zero roof load stress",
-      "Prevents contamination of raw materials and machinery",
-      "Complies with HACCP, ISO 22000, and FDA factory sanitation norms",
-      "Resistant to industrial chemical fumes and boiler steam"
-    ],
-    specifications: {
-      "Material": "UV-Stabilized High Tenacity Polypropylene / HDPE",
-      "Mesh Structure": "Knotless / Knotted 25mm to 50mm",
-      "Color": "Industrial Matte Black / Fog Grey",
-      "Flame Rating": "Self-extinguishing (FR Treated Optional)",
-      "Standard Roll Area": "500 sq.m to 2000 sq.m per master roll"
-    },
-    applications: [
-      "Food processing plants & grain storage godowns",
-      "Pharmaceutical manufacturing units",
-      "Automobile assembly plants & workshops",
-      "Sports stadiums, logistics hubs & railway sheds"
-    ],
-    sizes: ["25ft x 100ft", "50ft x 100ft", "Custom Large Industrial Panels"]
+    id: "bird-monkey-spike",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Bird Spike and Monkey Spike",
+    category: "Bird Spike & Monkey Spike",
+    image: "/images/birdspike123.jpeg",
+    sections: [
+      {
+        id: "monkey-spike",
+        title: "Monkey Spike",
+        video: "/videos/spike.mp4",
+        images: [
+          "/images/monkey1.jpeg",
+          "/images/monkey2.jpeg"
+        ],
+        description: "Protect your property from monkey nuisance with our high-quality Monkey Spikes",
+        specifications: [
+          "Virgin Monkey Spike",
+          "Size: 12 inch",
+          "Packing: 450 nos/ctn",
+          "Colour: Black and White"
+        ]
+      },
+      {
+        id: "bird-spike",
+        title: "Bird Spike",
+        video: "",
+        images: [
+          "/images/bird1.jpeg",
+          "/images/bird2.jpeg"
+        ],
+        description: "Bird Spikes: An effective and humane solution to prevent birds from sitting, nesting, and roosting on ledges, rooftops, windows, and other surfaces.",
+        specifications: [
+          "Virgin Bird Spike",
+          "Size: 12 inch",
+          "Packing: 320 nos/ctn"
+        ]
+      }
+    ]
   },
+
   {
-    id: "invisible-nylon-monofilament-net",
-    divisionId: "fibre-mesh",
-    divisionName: "Fibre Mesh",
-    name: "Invisible Monofilament Balcony Protection Net",
-    category: "Invisible Safety Grills & Mesh",
-    shortDescription: "Ultra-clear 0.7mm nylon monofilament net providing completely invisible bird barrier for luxury apartments.",
-    fullDescription: "Engineered for premium residential apartments where aesthetic view preservation is top priority. High-clarity nylon monofilament blends completely with the sky and glass facades while keeping pigeons out.",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
-    featured: false,
+    id: "construction-safety-net",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Construction Safety Net",
+    category: "Construction Safety Net",
+    image: "/images/products/construction-safety-net.jpg",
+    detailImage: "/images/products/construction-safety-net-detail.jpg",
+    fullDescription: "Construction safety nets are fitted around scaffolding, floor edges and open sides of buildings under construction. They help catch falling objects and debris and reduce the risk of accidents for workers and people nearby.",
     features: [
-      "Virtually invisible from inside the living room or from the ground",
-      "Smooth monofilament does not trap dust or bird feathers",
-      "High clarity with UV protection coating",
-      "Ideal for glass facade buildings and modern luxury towers"
+      "Strong, tear-resistant netting",
+      "UV-stabilised for long outdoor use",
+      "Lightweight and easy to fix on scaffolding",
+      "Helps keep construction sites safer and tidier",
     ],
-    specifications: {
-      "Material": "Nylon 6 Monofilament Polymer",
-      "Wire Gauge": "0.65mm / 0.80mm Thickness",
-      "Mesh Opening": "25mm x 25mm / 30mm x 30mm",
-      "Appearance": "Transparent Glass-Clear",
-      "Fastening": "Heavy-duty Nylon Hook Anchors & SS Grippers"
-    },
     applications: [
-      "Luxury sea-facing balconies and penthouses",
-      "Frameless glass balcony railings",
-      "Living room French windows",
-      "Boutique hotel balconies & guest rooms"
+      "High-rise building construction",
+      "Scaffolding and floor edges",
+      "Bridges and flyovers",
+      "Renovation and facade work",
     ],
-    sizes: ["Pre-Cut Balcony Packs (10x10ft, 10x20ft, 15x20ft, 20x30ft)"]
   },
+
   {
-    id: "birdnet-hardware-installation-kit",
-    divisionId: "fibre-mesh",
-    divisionName: "Fibre Mesh",
-    name: "Professional Birdnet Hardware & Fixing Kit",
-    category: "Balcony & Window Nets",
-    shortDescription: "Complete hardware set including SS 304 perimeter wire, nylon wall anchors, turnbuckles, wire clips and net ties.",
-    fullDescription: "Heavy-duty anchoring and tensioning hardware bundle designed for professional contractors and installers. Ensures zero net sagging and long-term structural tightness across concrete walls and steel railings.",
-    image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=800&q=80",
-    featured: false,
+    id: "mosquito-net",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "MOSQUITO NET FIBER AND PVC",
+    category: "Mosquito Net",
+    image: "/images/mosquito.jpeg",
+
+    description:
+      "Mosquito Net is a durable and economical solution designed to keep mosquitoes and insects out while allowing fresh air to flow freely. Its uniform thickness and special additives ensure long-lasting performance and reliability.",
+
+    sections: [
+      {
+        id: "mosquito-net-details",
+        title: "MOSQUITO NET FIBER AND PVC",
+
+        images: [
+          "/images/mosquito.jpeg"
+        ],
+
+        description:
+          "Mosquito Net is a durable and economical solution designed to keep mosquitoes and insects out while allowing fresh air to flow freely. Its uniform thickness and special additives ensure long-lasting performance and reliability.",
+
+        features: [
+          "Helps prevent mosquitoes and insects from entering",
+          "Allows fresh air circulation",
+          "Uniform thickness for better quality",
+          "Easy to install and maintain",
+          "Durable and cost-effective"
+        ],
+
+        specifications: [
+          {
+            title: "Available Colour",
+            items: [
+              "Fiber: Black | Grey | Ivory",
+              "PVC: Black | Grey | Ivory | Brown | Coffee Brown"
+            ]
+          },
+          {
+            title: "Available Sizes",
+            items: [
+              "Width: 0.9 MTR",
+              "Width: 1.2 MTR",
+              "Width: 1.5 MTR",
+              "Length: 15 MTR",
+              "Length: 20 MTR",
+              "Length: 30 MTR"
+            ]
+          },
+          {
+            title: "Packaging Options",
+            items: [
+              "Plastic Bags",
+              "Woven Bags",
+              "Carton Packaging",
+              "Custom Packaging Available"
+            ]
+          },
+          {
+            title: "Applications",
+            items: [
+              "Doors",
+              "Windows",
+              "Residential Buildings",
+              "Commercial Buildings"
+            ]
+          }
+        ],
+
+        closingNote:
+          "A simple, effective, and reliable solution for insect protection and fresh air circulation."
+      }
+    ]
+  },
+
+  {
+    id: "fiberglass-mesh",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Fiberglass Mesh / Fiberglass Mesh Self-Adhesive Tape",
+    category: "Fiberglass Mesh",
+    image: "/images/products/fiberglass-mesh.jpg",
+    subcategories: [
+      { id: "fiberglass-mesh-roll", name: "Fiberglass Mesh", image: "/images/products/fiberglass-mesh-roll.jpg" },
+      { id: "fiberglass-mesh-tape", name: "Fiberglass Mesh Self-Adhesive Tape", image: "/images/products/fiberglass-mesh-tape.jpg" },
+    ],
+  },
+
+  {
+    id: "agro-shade-net",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Agro Shade Net",
+    category: "Agro Shade Net",
+    image: "/images/products/agro-shade-net.jpg",
+    detailImage: "/images/products/agro-shade-net-detail.jpg",
+    fullDescription: "Agro shade nets protect plants from harsh sunlight and heat. They create a cooler growing environment, reduce water loss and help improve crop quality in nurseries, polyhouses and farms.",
     features: [
-      "Marine grade SS 304 wire rope (7x7 strand construction)",
-      "High grip nylon rawlplugs with forged zinc eye screw hooks",
-      "SS turnbuckles (hook & eye) for precise cable tensioning",
-      "UV-stabilized heavy duty cable ties for net-to-wire attachment"
+      "UV-stabilised netting",
+      "Reduces heat stress on plants",
+      "Allows air and light to pass through",
+      "Different shade levels available on request",
     ],
-    specifications: {
-      "Wire Rope": "SS 304 - 2mm / 3mm Diameter (PVC Coated or Bare)",
-      "Turnbuckles": "M5 / M6 Stainless Steel Tensioners",
-      "Fasteners": "8mm Nylon Anchors with 45mm Screw Eyes",
-      "Net Ties": "UV Stabilized 200mm Black/White Ties (Pack of 100)",
-      "Compatibility": "All HDPE and Monofilament Netting Types"
-    },
     applications: [
-      "Balcony perimeter wire framing",
-      "Duct area multi-point structural anchoring",
-      "Industrial truss cable grid mounting",
-      "Contractor installation toolkit"
+      "Plant nurseries",
+      "Vegetable and flower farming",
+      "Polyhouses and greenhouses",
+      "Home gardens and terraces",
     ],
-    sizes: ["Starter Kit (50 sq.ft)", "Standard Home Kit (200 sq.ft)", "Contractor Master Bundle (1000 sq.ft)"]
-  }
+  },
+
+  {
+    id: "tree-guard",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Tree Guard",
+    category: "Tree Guard",
+    image: "/images/products/tree-guard.jpg",
+    detailImage: "/images/products/tree-guard-detail.jpg",
+    fullDescription: "Tree guards protect young saplings from grazing animals, accidental damage and harsh weather during their early growth. A mesh guard around the plant lets air and light reach it while keeping it safe.",
+    features: [
+      "Protects young plants from animals and damage",
+      "Light and breathable, so air and sunlight pass through",
+      "Easy to install around saplings",
+      "Suitable for roadside, society and farm plantations",
+    ],
+    applications: [
+      "Roadside and avenue plantation",
+      "Housing societies and gardens",
+      "Farms and orchards",
+      "Parks and public spaces",
+    ],
+  },
+
+  {
+    id: "separation-net",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Separation Net / Protection Net",
+    category: "Separation Net / Protection Net",
+    image: "/images/products/separation-net.jpg",
+    detailImage: "/images/products/separation-net-detail.jpg",
+    fullDescription: "Separation and protection nets are used to divide areas and protect people, plants and property. They provide a light but sturdy barrier for sites, farms, play areas and industrial spaces.",
+    features: [
+      "Strong, lightweight netting",
+      "Weather and UV resistant",
+      "Easy to cut, fit and relocate",
+      "Cost-effective area separation",
+    ],
+    applications: [
+      "Dividing work areas and yards",
+      "Protecting plants and farmland",
+      "Play areas and sports zones",
+      "Construction and industrial sites",
+    ],
+  },
 ];
