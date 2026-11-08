@@ -1,6 +1,5 @@
 import SolutionCard from '../common/SolutionCard';
 import { divisions } from '../../data/solutions';
-import { Layers } from 'lucide-react';
 
 export default function SolutionsSection({ onSelect }) {
   return (
@@ -11,10 +10,6 @@ export default function SolutionsSection({ onSelect }) {
       <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* Header with clean eye-soothing hierarchy */}
         <div className="max-w-xl mx-auto text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-slate-300 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-3 shadow-xs">
-            <Layers className="w-3.5 h-3.5 text-navy-900" />
-
-          </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">
             Our Products
           </h2>
