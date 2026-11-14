@@ -49,16 +49,16 @@ function renderSpecifications(specifications) {
             return (
               <div
                 key={idx}
-                className="bg-slate-50/80 rounded-xl p-3 border border-slate-100 shadow-xs"
+                className="pt-2.5"
               >
                 {title && (
-                  <h5 className="text-[13px] sm:text-[14px] font-semibold text-slate-800">
+                  <h5 className="text-[14px] sm:text-[15px] font-semibold text-slate-800">
                     {title}
                   </h5>
                 )}
 
                 {Array.isArray(items) ? (
-                  <ul className="mt-1.5 list-disc pl-5 space-y-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <ul className="mt-1.5 list-disc pl-5 space-y-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
                     {items.map((item, itemIdx) => (
                       <li key={itemIdx}>
                         {typeof item === 'object' ? JSON.stringify(item) : String(item)}
@@ -66,7 +66,7 @@ function renderSpecifications(specifications) {
                     ))}
                   </ul>
                 ) : items ? (
-                  <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="mt-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
                     {typeof items === 'object' ? JSON.stringify(items) : String(items)}
                   </p>
                 ) : null}
@@ -90,19 +90,19 @@ function renderSpecifications(specifications) {
         {entries.map(([key, value]) => (
           <div
             key={key}
-            className="bg-slate-50/80 rounded-xl p-3 border border-slate-100 shadow-xs"
+            className="pt-2.5"
           >
-            <h5 className="text-[13px] sm:text-[14px] font-semibold text-slate-800">
+            <h5 className="text-[14px] sm:text-[15px] font-semibold text-slate-800">
               {key}
             </h5>
             {Array.isArray(value) ? (
-              <ul className="mt-1.5 list-disc pl-5 space-y-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <ul className="mt-1.5 list-disc pl-5 space-y-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
                 {value.map((item, idx) => (
                   <li key={idx}>{String(item)}</li>
                 ))}
               </ul>
             ) : (
-              <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="mt-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
                 {String(value)}
               </p>
             )}
@@ -187,7 +187,7 @@ export default function ProductSections({ product }) {
               <h4 className="text-[15px] sm:text-[17px] font-bold uppercase tracking-wider text-navy-900">
                 Description
               </h4>
-              <p className="mt-1.5 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+              <p className="mt-1.5 text-base sm:text-[17px] text-slate-600 leading-relaxed">
                 {section.description}
               </p>
             </div>
@@ -196,10 +196,10 @@ export default function ProductSections({ product }) {
           {/* 4. Features (if present) */}
           {section.features && section.features.length > 0 && (
             <div className="mt-4 sm:mt-5">
-              <h4 className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-navy-900">
+              <h4 className="text-[15px] sm:text-[16px] font-bold uppercase tracking-wider text-navy-900">
                 Key Features
               </h4>
-              <ul className="mt-1.5 list-disc pl-5 space-y-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <ul className="mt-1.5 list-disc pl-5 space-y-1 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
                 {section.features.map((feat, idx) => (
                   <li key={idx}>{String(feat)}</li>
                 ))}
@@ -210,7 +210,7 @@ export default function ProductSections({ product }) {
           {/* 5. Specifications directly beneath */}
           {section.specifications && (
             <div className="mt-4 sm:mt-5">
-              <h4 className="text-[13px] sm:text-[14px] font-bold uppercase tracking-wider text-navy-900">
+              <h4 className="text-[14px] sm:text-[15px] font-bold uppercase tracking-wider text-navy-900">
                 Specifications
               </h4>
               {renderSpecifications(section.specifications)}

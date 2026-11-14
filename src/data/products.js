@@ -197,8 +197,9 @@ export const products = [
     id: "hdpe-balcony-anti-bird-net",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
-    name: "GARDEN FENCING NETS",
-    category: "Garden Fencing",
+    name: "Hexagonal Fencing Net",
+    category: "Hexagonal Fencing Net",
+    shortDescription: "Easy-to-install, corrosion-resistant HDPE fencing kits for gardens, farms, construction sites and sports fields.",
 
     fullDescription: "Garden Fencing Nets offer a modern, efficient and user-friendly fencing solution. Designed as easy-to-install DIY kits, they provide a convenient option for households, architects, landscapers and large-scale users such as hotels, resorts and sports complexes. These fencing systems combine practicality with versatility, delivering a reliable and aesthetically pleasing fencing solution suitable for a wide range of applications.",
 
@@ -244,8 +245,9 @@ export const products = [
     id: "ss-304-anti-bird-spikes",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
-    name: "Bird Protection Nets",
-    category: "Bird Protection Nets",
+    name: "Bird Protection Net",
+    category: "Bird Protection Net",
+    shortDescription: "Reliable bird protection for homes, balconies, buildings and industries, in ready-made sizes and rolls.",
 
     fullDescription: "We offer high-quality Bird Nets designed to provide reliable protection for homes, balconies, buildings, industries, and open spaces. Available in multiple sizes, colours, and ply options to meet different requirements.",
 
@@ -291,7 +293,9 @@ export const products = [
     },
   },
 
-  // ===== NEW CATALOGUE (placeholder copy and images: replace with the client's real content) =====
+  // ===== CATALOGUE =====
+  // Image fields: `image` = main catalogue card, `detailImage` = product detail page (falls back to `image`).
+  // Placeholder images live in /public/images/placeholders. To replace one, overwrite the file or change the path here.
   // Main cards open: a subcategory grid (`subcategories`), a multi-section page (`sections`) or the standard detail page.
   {
     id: "sports-net",
@@ -299,6 +303,7 @@ export const products = [
     divisionName: "THE ROYAL BIRD NET",
     name: "Sports Net",
     category: "Sports Net",
+    shortDescription: "Cricket, turf, badminton and volleyball nets for sports grounds and courts.",
     image: "/images/products/sports-net.jpg",
     subcategories: [
       { id: "cricket-net", name: "Cricket Net", image: "/images/products/cricket-net.jpg" },
@@ -312,8 +317,9 @@ export const products = [
     id: "bird-monkey-spike",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
-    name: "Bird Spike and Monkey Spike",
-    category: "Bird Spike & Monkey Spike",
+    name: "Monkey Spike and Bird Spike",
+    category: "Monkey Spike & Bird Spike",
+    shortDescription: "Spikes that keep monkeys and birds off ledges, rooftops, windows and other surfaces.",
     image: "/images/birdspike123.jpeg",
     sections: [
       {
@@ -356,29 +362,30 @@ export const products = [
     divisionName: "THE ROYAL BIRD NET",
     name: "Construction Safety Net",
     category: "Construction Safety Net",
-    image: "/images/products/construction-safety-net.jpg",
-    detailImage: "/images/products/construction-safety-net-detail.jpg",
-    fullDescription: "Construction safety nets are fitted around scaffolding, floor edges and open sides of buildings under construction. They help catch falling objects and debris and reduce the risk of accidents for workers and people nearby.",
-    features: [
-      "Strong, tear-resistant netting",
-      "UV-stabilised for long outdoor use",
-      "Lightweight and easy to fix on scaffolding",
-      "Helps keep construction sites safer and tidier",
+    shortDescription: "Safety nets with a 12 mm four-sided outer rope, in double-layer, single-layer and braided options.",
+    image: "/images/construction.jpeg",
+    detailImage: "/images/construction.jpeg",
+    fullDescription: "Construction Safety Nets with 12 mm four-sided outer rope.",
+    detailSections: [
+      {
+        title: "Available In",
+        items: [
+          "Double Layer with Fishnet – 3 × 10 mtr & 5 × 10 mtr",
+          "Single Layer without Fishnet – 3 × 10 mtr & 5 × 10 mtr",
+          "Braided Net 2.5 mm Thickness – 3 × 10 mtr & 5 × 10 mtr"
+        ]
+      }
     ],
-    applications: [
-      "High-rise building construction",
-      "Scaffolding and floor edges",
-      "Bridges and flyovers",
-      "Renovation and facade work",
-    ],
+    closingNote: "For pricing and further details, please contact us."
   },
 
   {
     id: "mosquito-net",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
-    name: "MOSQUITO NET FIBER AND PVC",
-    category: "Mosquito Net",
+    name: "Mosquito Net Fiber / PVC",
+    category: "Mosquito Net Fiber / PVC",
+    shortDescription: "Keeps mosquitoes and insects out of doors and windows while letting fresh air flow through.",
     image: "/images/mosquito.jpeg",
 
     description:
@@ -387,7 +394,7 @@ export const products = [
     sections: [
       {
         id: "mosquito-net-details",
-        title: "MOSQUITO NET FIBER AND PVC",
+        title: "Mosquito Net Fiber / PVC",
 
         images: [
           "/images/mosquito.jpeg"
@@ -453,36 +460,88 @@ export const products = [
     id: "fiberglass-mesh",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
-    name: "Fiberglass Mesh / Fiberglass Mesh Self-Adhesive Tape",
-    category: "Fiberglass Mesh",
-    image: "/images/products/fiberglass-mesh.jpg",
-    subcategories: [
-      { id: "fiberglass-mesh-roll", name: "Fiberglass Mesh", image: "/images/products/fiberglass-mesh-roll.jpg" },
-      { id: "fiberglass-mesh-tape", name: "Fiberglass Mesh Self-Adhesive Tape", image: "/images/products/fiberglass-mesh-tape.jpg" },
+    name: "Fiberglass Mesh (Adhesive / Non Adhesive)",
+    category: "Fiberglass Mesh (Adhesive / Non Adhesive)",
+    shortDescription: "Alkali-resistant woven fiberglass mesh that reinforces walls and helps prevent cracks in construction work.",
+    image: "/images/fibreglassout.jpeg",
+    detailImage: "/images/fibreglassin.jpeg",
+    fullDescription: "Fiberglass Mesh is a strong and durable reinforcement material designed for various construction applications. Made from woven fiberglass fabric with an alkali-resistant coating, it provides excellent strength, stability, and protection against wall cracks.\n\nIt is widely used in wall reinforcement, external wall insulation, roof waterproofing, and other construction projects.",
+    features: [
+      "High tensile strength and crack resistance",
+      "Excellent alkali and corrosion resistance",
+      "Strong and stable structure",
+      "Helps prevent wall cracks and surface damage",
+      "Moisture-resistant properties",
+      "Supports thermal and sound insulation"
     ],
+    specifications: {
+      "Weight": "45 g/m² – 160 g/m²",
+      "Mesh Sizes": "3×3 mm, 4×4 mm, 5×5 mm, 10×10 mm",
+      "Available Widths": "20 cm, 50 cm, 1 m, 1.5 m, 2 m",
+      "Available Lengths": "20 m, 50 m, 100 m",
+      "Available Colours": "White, Blue, Red, Orange, Green",
+      "Customization": "Available as per customer requirements",
+      "Packaging Options": [
+        "Plastic Bags",
+        "Woven Bags",
+        "Carton Packaging",
+        "Custom Packaging Available"
+      ]
+    },
+    applications: [
+      "Wall Reinforcement",
+      "External Wall Insulation",
+      "Roof Waterproofing",
+      "Wall Crack Prevention",
+      "Thermal and Sound Insulation",
+      "Building Structure Protection",
+      "Insect Prevention in Building Structures"
+    ],
+    closingNote: "A reliable reinforcement solution for stronger, more durable, and crack-resistant construction."
   },
 
   {
     id: "agro-shade-net",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
-    name: "Agro Shade Net",
-    category: "Agro Shade Net",
-    image: "/images/products/agro-shade-net.jpg",
-    detailImage: "/images/products/agro-shade-net-detail.jpg",
-    fullDescription: "Agro shade nets protect plants from harsh sunlight and heat. They create a cooler growing environment, reduce water loss and help improve crop quality in nurseries, polyhouses and farms.",
+    name: "Green Shade Net",
+    category: "Green Shade Net",
+    shortDescription: "Protects plants and crops from excessive sunlight and harsh weather while creating a suitable growing environment.",
+    image: "/images/agro.jpeg",
+    detailImage: "/images/agro.jpeg",
+    fullDescription: "Agro Shade Nets are designed to protect plants and crops from excessive sunlight, harmful UV rays, and harsh weather conditions. Made from high-quality HDPE material, they help create a suitable growing environment and support healthy crop growth.\n\nAvailable in different sunlight-blocking percentages to meet various agricultural and shading requirements.",
     features: [
-      "UV-stabilised netting",
-      "Reduces heat stress on plants",
-      "Allows air and light to pass through",
-      "Different shade levels available on request",
+      "Strong reflective structure",
+      "Single and double colour options",
+      "UV-stabilized for long outdoor life",
+      "Helps reduce fertilizer leaching",
+      "Supports air circulation and crop protection",
+      "Durable, flexible, and weather-resistant"
     ],
+    specifications: {
+      "Material": "High-Density Polyethylene (HDPE)",
+      "Sunlight Blocking": "30% – 95%",
+      "Roll Sizes and Readymade Sizes": "Various widths and lengths available.",
+      "Colour": "Green (other colours available)",
+      "Type": "Single and double colour options",
+      "Packaging Options": [
+        "Plastic Bags",
+        "Woven Bags",
+        "Carton Packaging",
+        "Custom Packaging Available"
+      ]
+    },
     applications: [
-      "Plant nurseries",
-      "Vegetable and flower farming",
-      "Polyhouses and greenhouses",
-      "Home gardens and terraces",
+      "Greenhouses",
+      "Agriculture and Crop Protection",
+      "Poultry Farms",
+      "Construction Sites",
+      "Truck Shade Covers",
+      "Sports Arenas (Cricket, Football, Tennis)",
+      "Exhibition Hangers",
+      "Fish Tanks and Aquaculture Areas"
     ],
+    closingNote: "A durable and versatile shading solution for agriculture, commercial, and outdoor applications."
   },
 
   {
@@ -491,43 +550,89 @@ export const products = [
     divisionName: "THE ROYAL BIRD NET",
     name: "Tree Guard",
     category: "Tree Guard",
-    image: "/images/products/tree-guard.jpg",
-    detailImage: "/images/products/tree-guard-detail.jpg",
-    fullDescription: "Tree guards protect young saplings from grazing animals, accidental damage and harsh weather during their early growth. A mesh guard around the plant lets air and light reach it while keeping it safe.",
+    shortDescription: "Lightweight, reusable guard that protects young plants and saplings from animals and external damage.",
+    image: "/images/placeholders/tree-guard-card.svg",
+    detailImage: "/images/placeholders/tree-guard-detail.svg",
+    fullDescription: "Tree Guard is a durable and eco-friendly solution designed to protect young plants and saplings from animals and external damage. Made for easy installation, it offers a lightweight and cost-effective alternative to traditional iron mesh tree guards.\n\nSuitable for residential, commercial, and large-scale plantation projects.",
     features: [
-      "Protects young plants from animals and damage",
-      "Light and breathable, so air and sunlight pass through",
-      "Easy to install around saplings",
-      "Suitable for roadside, society and farm plantations",
+      "Environment-friendly material",
+      "UV-stabilized for long-lasting performance",
+      "Lightweight and easy to install",
+      "Reusable and recyclable",
+      "Non-corrosive and weather-resistant",
+      "Easy to maintain and economical"
+    ],
+    detailSections: [
+      {
+        title: "Available Sizes",
+        items: [
+          "Tubular Cut Sheets 4 × 6 FT",
+          "Tubular Cut Sheets 4 × 5 FT",
+          "Tubular Cut Sheets 4 × 4 FT"
+        ]
+      },
+      {
+        title: "Available Colours",
+        items: [
+          "Green",
+          "Customized colours available on request"
+        ]
+      },
+      {
+        title: "Packaging Options",
+        items: [
+          "Plastic Bags",
+          "Woven Bags",
+          "Carton Packaging",
+          "Custom Packaging Available"
+        ]
+      }
     ],
     applications: [
-      "Roadside and avenue plantation",
-      "Housing societies and gardens",
-      "Farms and orchards",
-      "Parks and public spaces",
+      "Roads and Highways Plantation",
+      "Forest Department Projects",
+      "Municipal Corporation Plantations",
+      "NGO Plantation Activities",
+      "CSR Plantation Programs"
     ],
+    closingNote: "A smart, durable, and eco-friendly solution for protecting young trees and supporting greener surroundings."
   },
 
   {
     id: "separation-net",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
-    name: "Separation Net / Protection Net",
-    category: "Separation Net / Protection Net",
-    image: "/images/products/separation-net.jpg",
-    detailImage: "/images/products/separation-net-detail.jpg",
-    fullDescription: "Separation and protection nets are used to divide areas and protect people, plants and property. They provide a light but sturdy barrier for sites, farms, play areas and industrial spaces.",
+    name: "Square Net (Protection Net / Separation Net)",
+    category: "Square Net (Protection Net / Separation Net)",
+    shortDescription: "Lightweight HDPE flat net that guards AC and cooler back panels from dust and debris while allowing airflow.",
+    image: "/images/placeholders/square-net-card.svg",
+    detailImage: "/images/placeholders/square-net-detail.svg",
+    fullDescription: "HDPE Net is a durable and lightweight extruded flat net made from high-quality polyethylene. It is designed to protect air conditioner and air cooler back panels from dust, debris, and external damage while allowing proper airflow.\n\nIts corrosion-resistant and maintenance-free properties make it suitable for both residential and industrial applications.",
     features: [
-      "Strong, lightweight netting",
-      "Weather and UV resistant",
-      "Easy to cut, fit and relocate",
-      "Cost-effective area separation",
+      "Made from durable HDPE material",
+      "Non-corrosive and weather-resistant",
+      "Lightweight and easy to handle",
+      "Maintenance-free design",
+      "Long-lasting and durable",
+      "Eco-friendly and recyclable"
     ],
+    specifications: {
+      "Available Widths": "1 MTR, 1.2 MTR",
+      "Roll Length": "25 MTR",
+      "Customization": "Available as per customer requirements",
+      "Packaging Options": [
+        "Plastic Bags",
+        "Woven Bags",
+        "Carton Packaging",
+        "Custom Packaging Available"
+      ]
+    },
     applications: [
-      "Dividing work areas and yards",
-      "Protecting plants and farmland",
-      "Play areas and sports zones",
-      "Construction and industrial sites",
+      "Air Conditioner Back Panel Protection",
+      "Air Cooler Protection",
+      "Industrial Ventilation Protection",
+      "Outdoor Equipment Protection"
     ],
+    closingNote: "A lightweight, durable, and reliable protection solution for residential and industrial equipment."
   },
 ];

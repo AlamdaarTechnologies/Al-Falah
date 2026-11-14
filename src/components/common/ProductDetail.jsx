@@ -8,10 +8,10 @@ function DetailBlock({ title, items }) {
 
   return (
     <div className="mt-4">
-      <h4 className="text-[14px] sm:text-[16px] font-bold uppercase tracking-wider text-navy-900">
+      <h4 className="text-[14px] sm:text-[15px] font-bold uppercase tracking-wider text-navy-900">
         {title}
       </h4>
-      <ul className="mt-2 list-disc pl-5 space-y-1 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+      <ul className="mt-2 list-disc pl-5 space-y-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
         {items.map((item, idx) => (
           <li key={idx}>{item}</li>
         ))}
@@ -55,7 +55,7 @@ export default function ProductDetail({ product }) {
 
           {/* Product Heading */}
           {mosquitoSection && (
-            <h3 className="text-[18px] sm:text-[20px] font-bold uppercase tracking-wider text-navy-900 mb-3">
+            <h3 className="text-[18px] sm:text-[19px] font-bold uppercase tracking-wider text-navy-900 mb-3">
               {mosquitoSection.title}
             </h3>
           )}
@@ -63,14 +63,19 @@ export default function ProductDetail({ product }) {
           {/* Description */}
           <div>
             {!mosquitoSection && (
-              <h4 className="text-[18px] sm:text-[20px] font-bold uppercase tracking-wider text-navy-900">
+              <h4 className="text-[18px] sm:text-[19px] font-bold uppercase tracking-wider text-navy-900">
                 Description
               </h4>
             )}
 
-            <p className="mt-2 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
-              {description}
-            </p>
+            {String(description || '').split('\n\n').filter(Boolean).map((para, idx) => (
+              <p
+                key={idx}
+                className={`${idx === 0 ? 'mt-2' : 'mt-3'} text-base sm:text-[17px] text-slate-600 leading-relaxed`}
+              >
+                {para}
+              </p>
+            ))}
           </div>
 
           {/* Mosquito Net Key Features */}
@@ -81,27 +86,32 @@ export default function ProductDetail({ product }) {
             />
           )}
 
+          {/* Existing Product Features */}
+          {!mosquitoSection && (
+            <DetailBlock title="Key Features" items={product.features} />
+          )}
+
           {/* Existing Technical Specifications */}
           {!mosquitoSection && specs.length > 0 && (
             <div className="mt-5">
-              <h4 className="text-[14px] sm:text-[16px] font-bold uppercase tracking-wider text-navy-900">
+              <h4 className="text-[15px] sm:text-[16px] font-bold uppercase tracking-wider text-navy-900">
                 Technical Specifications
               </h4>
 
               {specs.map(([key, value]) => (
                 <div key={key} className="mt-3">
-                  <h5 className="text-[13px] sm:text-[14px] font-semibold text-slate-800">
+                  <h5 className="text-[14px] sm:text-[15px] font-semibold text-slate-800">
                     {key}
                   </h5>
 
                   {Array.isArray(value) ? (
-                    <ul className="mt-1 list-disc pl-5 space-y-1 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+                    <ul className="mt-1 list-disc pl-5 space-y-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
                       {value.map((item, idx) => (
                         <li key={idx}>{item}</li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="mt-1 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+                    <p className="mt-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
                       {value}
                     </p>
                   )}
@@ -119,13 +129,22 @@ export default function ProductDetail({ product }) {
             />
           ))}
 
-          {/* Existing Product Features */}
           {!mosquitoSection && (
             <>
-              <DetailBlock title="Key Advantages" items={product.features} />
+              {/* Optional extra titled lists, e.g. "Available In", "Available Colours" */}
+              {(product.detailSections || []).map((group) => (
+                <DetailBlock key={group.title} title={group.title} items={group.items} />
+              ))}
               <DetailBlock title="Available Sizes & Grades" items={product.sizes} />
               <DetailBlock title="Applications" items={product.applications} />
             </>
+          )}
+
+          {/* Optional closing note (same style as the multi-section product pages) */}
+          {!mosquitoSection && product.closingNote && (
+            <p className="mt-4 text-xs sm:text-sm italic text-slate-600 border-l-2 border-[#f0b429] pl-3 py-1">
+              {product.closingNote}
+            </p>
           )}
 
           {/* WhatsApp Inquiry */}
@@ -148,40 +167,40 @@ export default function ProductDetail({ product }) {
         </div>
       </div>
 
-      {/* Existing Nylon Bird Protection Net */}
+      {/* Nylon Bird Protection Net — vertical: title → image → description */}
       {showNylonNet && product.additionalProduct && (
         <div className="mt-10 pt-8 border-t border-slate-200">
-          <div className="flex flex-row md:grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
-            <div className="shrink-0">
-              {product.additionalProduct.image ? (
-                <div className="w-28 sm:w-44 md:w-64 lg:w-72 aspect-[4/3] rounded-[10px] overflow-hidden bg-slate-100 shadow-sm border border-slate-100">
-                  <img
-                    src={product.additionalProduct.image.startsWith('/') ||
-                      product.additionalProduct.image.startsWith('http')
-                      ? product.additionalProduct.image
-                      : `/${product.additionalProduct.image}`}
-                    alt={product.additionalProduct.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ) : (
-                <div className="w-28 sm:w-44 md:w-64 lg:w-72 aspect-[4/3] rounded-[10px] bg-slate-100 border border-dashed border-slate-300 flex items-center justify-center">
-                  <span className="text-xs text-slate-400">Image Soon</span>
-                </div>
-              )}
-            </div>
+          <div className="flex flex-col gap-4">
 
-            <div className="min-w-0 flex-1">
-              <h3 className="text-[20px] sm:text-[22px] font-bold text-navy-900">
-                {product.additionalProduct.name}
-              </h3>
-              {product.additionalProduct.description && (
-                <p className="mt-1.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {product.additionalProduct.description}
-                </p>
-              )}
-            </div>
+            {/* 1. Title */}
+            <h3 className="text-[20px] sm:text-[22px] font-bold text-navy-900 leading-snug">
+              {product.additionalProduct.name}
+            </h3>
+
+            {/* 2. Image */}
+            {product.additionalProduct.image && (
+              <div className="w-full max-w-sm rounded-[10px] overflow-hidden bg-slate-100 shadow-sm border border-slate-100 aspect-[4/3]">
+                <img
+                  src={
+                    product.additionalProduct.image.startsWith('/') ||
+                    product.additionalProduct.image.startsWith('http')
+                      ? product.additionalProduct.image
+                      : `/${product.additionalProduct.image}`
+                  }
+                  alt={product.additionalProduct.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            )}
+
+            {/* 3. Description */}
+            {product.additionalProduct.description && (
+              <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+                {product.additionalProduct.description}
+              </p>
+            )}
+
           </div>
 
           <div className="mt-6 pt-6 border-t border-slate-100">

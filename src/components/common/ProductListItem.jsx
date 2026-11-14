@@ -1,5 +1,3 @@
-import { ArrowUpRight } from 'lucide-react';
-
 export default function ProductListItem({ product, onSelect }) {
   return (
     <article
@@ -15,14 +13,14 @@ export default function ProductListItem({ product, onSelect }) {
         />
       </div>
 
-      <div className="min-w-0 flex-1 flex flex-col justify-center">
-        <div className="flex flex-col items-start gap-1 sm:gap-1.5">
+      <div className="min-w-0 flex-1 flex flex-col justify-center items-center text-center">
+        <div className="flex flex-col items-center gap-1 sm:gap-1.5">
           <h3 className="font-sans text-base sm:text-lg font-semibold text-slate-900 group-hover:text-navy-900 transition-colors leading-snug">
             {product.name}
           </h3>
 
-          <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-medium text-slate-500 group-hover:text-navy-900 transition-colors">
-            View Details <ArrowUpRight className="w-3 h-3 text-slate-400 group-hover:text-navy-900 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          <span className="text-[11px] sm:text-xs font-medium text-slate-500 group-hover:text-navy-900 transition-colors">
+            View Details
           </span>
         </div>
       </div>

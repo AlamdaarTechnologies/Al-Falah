@@ -9,8 +9,8 @@ export default function SubcategoryDetail({ parent, item }) {
         <img src={item.image} alt={item.name} className="w-full aspect-[4/3] object-cover" />
       </div>
       <div>
-        <h4 className="text-[18px] sm:text-[20px] font-bold uppercase tracking-wider text-navy-900">{item.name}</h4>
-        <p className="mt-2 text-sm sm:text-[15px] text-slate-600 leading-relaxed">
+        <h4 className="text-[18px] sm:text-[19px] font-bold uppercase tracking-wider text-navy-900">{item.name}</h4>
+        <p className="mt-2 text-base sm:text-[17px] text-slate-600 leading-relaxed">
           Part of our {parent.category} range. Message us on WhatsApp for sizes, rates and availability.
         </p>
         <div className="mt-8 pt-6 border-t border-slate-100">

@@ -4,6 +4,7 @@ import ProductDetail from '../common/ProductDetail';
 import ProductSections from '../common/ProductSections';
 import SubcategoryCard from '../common/SubcategoryCard';
 import SubcategoryDetail from '../common/SubcategoryDetail';
+import ServicesSection from './ServicesSection';
 import { products } from '../../data/products';
 
 const toTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
@@ -42,7 +43,14 @@ export default function ProductView({ division }) {
   let heading = (
     <>
       <h2 id="products-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 tracking-tight">{division.shortName}</h2>
-      <p className="mt-1.5 text-sm sm:text-base text-slate-600">Available products</p>
+
+      {division.tagline && (
+        <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+          {division.tagline}
+        </p>
+      )}
+
+      <p className="mt-3 text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-400">Available products</p>
     </>
   );
   let body = (
@@ -54,14 +62,24 @@ export default function ProductView({ division }) {
   );
 
   if (product) {
-    heading = <h1 id="products-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 tracking-tight">{product.name}</h1>;
+    heading = (
+      <>
+        <h1 id="products-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 tracking-tight">{product.name}</h1>
+        {/* Short description: product detail pages only (Royal Bird Net). Plumbing keeps its existing layout. */}
+        {division.id === 'royal-birdnet' && product.shortDescription && (
+          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+            {product.shortDescription}
+          </p>
+        )}
+      </>
+    );
 
     if (sub) {
       heading = <h1 id="products-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 tracking-tight">{sub.name}</h1>;
       body = <div className={detailCard}><SubcategoryDetail parent={product} item={sub} /></div>;
     } else if (product.subcategories) {
       body = (
-        <div className="grid grid-cols-2 gap-4 sm:gap-6">
+        <div className="flex flex-col gap-4 sm:gap-6">
           {product.subcategories.map((s) => (
             <SubcategoryCard key={s.id} item={s} onSelect={(id) => go({ product: product.id, sub: id })} />
           ))}
@@ -79,6 +97,7 @@ export default function ProductView({ division }) {
       <div className="max-w-4xl mx-auto px-6 sm:px-10 lg:px-12">
         <div className="mb-6 sm:mb-8">{heading}</div>
         <div className="mt-6 sm:mt-8">{body}</div>
+        {!product && division.id === 'royal-birdnet' && <ServicesSection />}
       </div>
     </section>
   );
