@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -10,75 +11,172 @@ import ContactSection from './components/sections/ContactSection';
 import ProductView from './components/sections/ProductView';
 import { divisions } from './data/solutions';
 
-export default function App() {
-  // The selected solution decides which view is shown: homepage (null) or focused product view
-  const [selectedId, setSelectedId] = useState(null);
-  const pendingScroll = useRef(null); // section to scroll to after returning to the homepage
-  const selected = divisions.find((d) => d.id === selectedId);
+// Read the current view from the browser URL
+function readRouteFromHash() {
+  const hash = window.location.hash.slice(1);
 
-  // Browser Back / Forward button
+  // Product view: #product/product-id
+  if (hash.startsWith('product/')) {
+    const id = decodeURIComponent(hash.slice(8));
+
+    const exists = divisions.some((division) => division.id === id);
+
+    if (exists) {
+      return { solution: id, section: null };
+    }
+
+    return { solution: null, section: 'solutions' };
+  }
+
+  // Homepage sections
+  const sections = [
+    'home',
+    'about',
+    'mission',
+    'solutions',
+    'inquiry',
+    'contact'
+  ];
+
+  return {
+    solution: null,
+    section: sections.includes(hash) ? hash : null
+  };
+}
+
+export default function App() {
+  // Initialize the selected view from the URL
+  const [initialRoute] = useState(readRouteFromHash);
+
+  const [selectedId, setSelectedId] = useState(
+    initialRoute.solution
+  );
+
+  const pendingScroll = useRef(initialRoute.section);
+
+  const selected = divisions.find(
+    (division) => division.id === selectedId
+  );
+
+  // Browser Back / Forward navigation
   useEffect(() => {
-    window.history.replaceState(null, '');
-    window.history.scrollRestoration = 'manual'; // we control scrolling when switching views
-    const onPop = (e) => {
-      const id = e.state?.solution ?? null;
-      if (!id && !pendingScroll.current) pendingScroll.current = 'solutions';
-      setSelectedId(id);
+    const previousRestoration = window.history.scrollRestoration;
+
+    window.history.scrollRestoration = 'manual';
+
+    const onPop = () => {
+      const route = readRouteFromHash();
+
+      pendingScroll.current = route.section;
+
+      setSelectedId(route.solution);
+
+      // Return to the top if the URL has no recognized section
+      if (!route.solution && !route.section) {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      }
     };
+
     window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
+
+    return () => {
+      window.removeEventListener('popstate', onPop);
+      window.history.scrollRestoration = previousRestoration;
+    };
   }, []);
 
-  // After the view changes: product view starts at the top; the homepage returns to the requested section
+  // Restore scroll position after switching views or refreshing
   useEffect(() => {
     if (selectedId) {
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      window.scrollTo({ top: 0, behavior: 'auto' });
     } else if (pendingScroll.current) {
-      const id = pendingScroll.current;
+      const sectionId = pendingScroll.current;
       pendingScroll.current = null;
-      document.getElementById(id)?.scrollIntoView({ behavior: 'instant' });
+
+      requestAnimationFrame(() => {
+        document
+          .getElementById(sectionId)
+          ?.scrollIntoView({ behavior: 'auto' });
+      });
     }
   }, [selectedId]);
 
+  // Open a particular product
   const selectSolution = (id) => {
-    if (window.history.state?.solution) window.history.replaceState({ solution: id }, '');
-    else window.history.pushState({ solution: id }, '');
+    window.history.pushState(
+      { solution: id },
+      '',
+      `#product/${encodeURIComponent(id)}`
+    );
+
     setSelectedId(id);
   };
 
+  // Return to homepage and navigate to the requested section
   const leaveProductView = (sectionId) => {
     pendingScroll.current = sectionId;
-    if (window.history.state?.solution) window.history.back(); // popstate restores the homepage
-    else setSelectedId(null);
+
+    window.history.pushState(
+      { section: sectionId },
+      '',
+      `#${sectionId}`
+    );
+
+    setSelectedId(null);
   };
 
-  // Navbar links: scroll on the homepage, or return to it first from the product view
+  // Navbar navigation
   const goTo = (id) => {
-    if (selectedId) leaveProductView(id);
-    else document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (selectedId) {
+      leaveProductView(id);
+      return;
+    }
+
+    window.history.pushState(
+      { section: id },
+      '',
+      `#${id}`
+    );
+
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className="relative min-h-screen flex flex-col bg-[#fafafa] text-slate-800 antialiased font-sans selection:bg-gold-500 selection:text-slate-900 overflow-x-hidden">
-      <Navbar onNavigate={goTo} onSelectSolution={selectSolution} inProductView={!!selected} />
+
+      <Navbar
+        onNavigate={goTo}
+        onSelectSolution={selectSolution}
+        inProductView={!!selected}
+      />
+
       <main className="flex-1">
-          {selected ? (
-            <>
-              <ProductView key={selected.id} division={selected} />
-              <InquirySection solutionName={selected.shortName} />
-            </>
-          ) : (
-            <>
-              <Hero />
-              <AboutSection />
-              <MissionSection />
-              <SolutionsSection onSelect={selectSolution} />
-              <InquirySection />
-              <ContactSection />
-            </>
-          )}
-        </main>
-        <Footer />
+        {selected ? (
+          <>
+            <ProductView
+              key={selected.id}
+              division={selected}
+            />
+
+            <InquirySection
+              solutionName={selected.shortName}
+            />
+          </>
+        ) : (
+          <>
+            <Hero />
+            <AboutSection />
+            <MissionSection />
+            <SolutionsSection onSelect={selectSolution} />
+            <InquirySection />
+            <ContactSection />
+          </>
+        )}
+      </main>
+
+      <Footer />
     </div>
   );
 }
