@@ -86,19 +86,28 @@ export default function App() {
   }, []);
 
   // Restore scroll position after switching views or refreshing
+  // Restore the correct view after refresh or navigation
   useEffect(() => {
     if (selectedId) {
       window.scrollTo({ top: 0, behavior: 'auto' });
-    } else if (pendingScroll.current) {
-      const sectionId = pendingScroll.current;
-      pendingScroll.current = null;
-
-      requestAnimationFrame(() => {
-        document
-          .getElementById(sectionId)
-          ?.scrollIntoView({ behavior: 'auto' });
-      });
+      return;
     }
+
+    const sectionId = pendingScroll.current;
+
+    if (!sectionId) return;
+
+    // Wait until the page sections are rendered
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.getElementById(sectionId)?.scrollIntoView({
+          behavior: 'auto',
+          block: 'start',
+        });
+
+        pendingScroll.current = null;
+      });
+    });
   }, [selectedId]);
 
   // Open a particular product
