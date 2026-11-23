@@ -9,7 +9,6 @@ export default function AboutSection() {
 
         {/* Eyebrow */}
         <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-[#b8860b] mb-2">
-          About Al Falah
         </p>
 
         {/* Heading */}
@@ -19,7 +18,7 @@ export default function AboutSection() {
 
         {/* Existing Content */}
         <p className="mt-4 sm:mt-5 text-base sm:text-lg font-medium leading-relaxed sm:leading-8 text-navy-700 [text-wrap:pretty]">
-          {businessInfo.brandName} supplies fibre mesh, bird netting, pipes, fittings, valves and sanitary fixtures to contractors, builders, societies and homeowners.
+          We are dealing with fibre mesh, bird netting, pipes, fittings, valves and sanitary fixtures to contractors, builders, societies and homeowners.
         </p>
       </div>
     </section>

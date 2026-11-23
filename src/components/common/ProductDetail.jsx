@@ -1,21 +1,36 @@
+import { LabelValue, ProductInfo } from './ProductContent';
+import { typo, normalizeSpecs } from './productFormat';
 
-import { MessageCircle } from 'lucide-react';
-import Button from './Button';
-import { getProductInquiryUrl } from '../../utils/whatsapp';
+/**
+ * Nylon Bird Protection Net details.
+ * The data's description is: "<name line>\nPly: …\nSize: …".
+ * - The first line only repeats the product name, so it is not rendered again.
+ * - Ply / Size are shown inline as "Available Ply:" / "Available Sizes:"
+ *   (labels bold, values untouched).
+ */
+const NYLON_LABELS = { Ply: 'Available Ply', Size: 'Available Sizes' };
 
-function DetailBlock({ title, items }) {
-  if (!items || items.length === 0) return null;
+function NylonDetails({ description }) {
+  const lines = String(description || '')
+    .split('\n')
+    .map((l) => l.trim())
+    .filter(Boolean);
+  if (lines.length === 0) return null;
+
+  const labelled = (l) => /^([^:]{1,30}):\s+(.+)$/.exec(l);
+  const body = labelled(lines[0]) ? lines : lines.slice(1);
 
   return (
-    <div className="mt-4">
-      <h4 className="text-[14px] sm:text-[15px] font-bold uppercase tracking-wider text-navy-900">
-        {title}
-      </h4>
-      <ul className="mt-2 list-disc pl-5 space-y-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
-        {items.map((item, idx) => (
-          <li key={idx}>{item}</li>
-        ))}
-      </ul>
+    <div className="space-y-1">
+      {body.map((line, idx) => {
+        const m = labelled(line);
+        if (!m) return <p key={idx} className={typo.body}>{line}</p>;
+        return (
+          <LabelValue key={idx} label={NYLON_LABELS[m[1]] || m[1]}>
+            {m[2]}
+          </LabelValue>
+        );
+      })}
     </div>
   );
 }
@@ -23,199 +38,107 @@ function DetailBlock({ title, items }) {
 export default function ProductDetail({ product }) {
   const displayImage = product.detailImage || product.image;
 
-  const specs = Object.entries(product.specifications || {});
+  const showNylonNet = product.id === 'ss-304-anti-bird-spikes';
 
-  const showNylonNet = product.id === "ss-304-anti-bird-spikes";
+  // Support the Mosquito Net structure (single `sections[0]`) alongside standard products.
+  const mosquitoSection = product.id === 'mosquito-net' ? product.sections?.[0] : null;
 
-  // Detect the new Mosquito Net data structure
-  const mosquitoSection = product.id === "mosquito-net"
-    ? product.sections?.[0]
-    : null;
-
-  // Support existing products and the new Mosquito Net structure
   const description = mosquitoSection?.description || product.fullDescription;
 
-  const mosquitoSpecs = mosquitoSection?.specifications || [];
+  // Specification rows: spec table, then extra titled groups, then sizes — one compact box.
+  const specRows = mosquitoSection
+    ? normalizeSpecs(mosquitoSection.specifications)
+    : [
+      ...normalizeSpecs(product.specifications),
+      ...(product.detailSections || []).map((g) => ({ label: g.title, value: g.items })),
+      ...(product.sizes && product.sizes.length
+        ? [{ label: 'Available Sizes & Grades', value: product.sizes }]
+        : []),
+    ];
+
+  const hasSpecTable = Boolean(product.specifications);
+  const extra = product.additionalProduct;
+  const nylonImage = extra?.image
+    ? (extra.image.startsWith('/') || extra.image.startsWith('http') ? extra.image : `/${extra.image}`)
+    : null;
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8">
 
-        {/* Main Product Image */}
-        <div className="relative rounded-[10px] overflow-hidden bg-slate-100 shadow-sm md:sticky md:top-24 self-start">
-          <img
-            src={displayImage}
-            alt={product.name}
-            className="w-full aspect-[4/3] object-cover"
-          />
+        {/* Main Product Image(s) */}
+        <div className="md:col-span-2 min-w-0 space-y-3 md:sticky md:top-24 self-start">
+          <div className="relative rounded-[10px] overflow-hidden bg-slate-100 shadow-sm">
+            <img
+              src={displayImage}
+              alt={product.name}
+              className="block w-full max-w-full aspect-[4/3] object-cover"
+            />
+          </div>
+
+          {/* Additional images or placeholder if specified */}
+          {product.images && product.images.length > 0 ? (
+            product.images.map((imgSrc, idx) => (
+              <div key={idx} className="relative rounded-[10px] overflow-hidden bg-slate-100 shadow-sm aspect-[4/3]">
+                <img
+                  src={imgSrc}
+                  alt={`${product.name} ${idx + 2}`}
+                  className="block w-full max-w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          ) : product.hasSecondImagePlaceholder ? (
+            <div className="relative rounded-[10px] overflow-hidden bg-slate-100 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center aspect-[4/3] text-slate-500 p-4 text-center">
+              <svg className="w-10 h-10 mb-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span className="text-sm font-semibold text-slate-600">Image Placeholder</span>
+              <span className="text-xs text-slate-400 mt-1">Second image coming soon</span>
+            </div>
+          ) : null}
         </div>
 
         {/* Product Information */}
-        <div className="min-w-0">
-
-          {/* Product Heading */}
+        <div className="md:col-span-3 min-w-0">
           {mosquitoSection && (
-            <h3 className="text-[18px] sm:text-[19px] font-bold uppercase tracking-wider text-navy-900 mb-3">
-              {mosquitoSection.title}
-            </h3>
+            <h3 className={`${typo.title} mb-3`}>{mosquitoSection.title}</h3>
           )}
 
-          {/* Description */}
-          <div>
-            {!mosquitoSection && (
-              <h4 className="text-[18px] sm:text-[19px] font-bold uppercase tracking-wider text-navy-900">
-                Description
-              </h4>
-            )}
+          <ProductInfo
+            description={description}
+            features={mosquitoSection ? mosquitoSection.features : product.features}
+            specRows={specRows}
+            specTitle={mosquitoSection ? 'Specifications' : hasSpecTable ? 'Technical Specifications' : null}
+            applications={mosquitoSection ? null : product.applications}
+          />
 
-            {String(description || '').split('\n\n').filter(Boolean).map((para, idx) => (
-              <p
-                key={idx}
-                className={`${idx === 0 ? 'mt-2' : 'mt-3'} text-base sm:text-[17px] text-slate-600 leading-relaxed`}
-              >
-                {para}
-              </p>
-            ))}
-          </div>
 
-          {/* Mosquito Net Key Features */}
-          {mosquitoSection && (
-            <DetailBlock
-              title="Key Features"
-              items={mosquitoSection.features}
-            />
-          )}
-
-          {/* Existing Product Features */}
-          {!mosquitoSection && (
-            <DetailBlock title="Key Features" items={product.features} />
-          )}
-
-          {/* Existing Technical Specifications */}
-          {!mosquitoSection && specs.length > 0 && (
-            <div className="mt-5">
-              <h4 className="text-[15px] sm:text-[16px] font-bold uppercase tracking-wider text-navy-900">
-                Technical Specifications
-              </h4>
-
-              {specs.map(([key, value]) => (
-                <div key={key} className="mt-3">
-                  <h5 className="text-[14px] sm:text-[15px] font-semibold text-slate-800">
-                    {key}
-                  </h5>
-
-                  {Array.isArray(value) ? (
-                    <ul className="mt-1 list-disc pl-5 space-y-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
-                      {value.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="mt-1 text-[13px] sm:text-[14px] text-slate-600 leading-relaxed">
-                      {value}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* New Mosquito Net Specifications */}
-          {mosquitoSection && mosquitoSpecs.map((group) => (
-            <DetailBlock
-              key={group.title}
-              title={group.title}
-              items={group.items}
-            />
-          ))}
-
-          {!mosquitoSection && (
-            <>
-              {/* Optional extra titled lists, e.g. "Available In", "Available Colours" */}
-              {(product.detailSections || []).map((group) => (
-                <DetailBlock key={group.title} title={group.title} items={group.items} />
-              ))}
-              <DetailBlock title="Available Sizes & Grades" items={product.sizes} />
-              <DetailBlock title="Applications" items={product.applications} />
-            </>
-          )}
-
-          {/* Optional closing note (same style as the multi-section product pages) */}
-          {!mosquitoSection && product.closingNote && (
-            <p className="mt-4 text-xs sm:text-sm italic text-slate-600 border-l-2 border-[#f0b429] pl-3 py-1">
-              {product.closingNote}
-            </p>
-          )}
-
-          {/* WhatsApp Inquiry */}
-          {!showNylonNet && (
-            <div className="mt-6 pt-5 border-t border-slate-100">
-              <Button
-                as="a"
-                href={getProductInquiryUrl(product)}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="whatsapp"
-                size="md"
-                icon={MessageCircle}
-                className="font-bold shadow-md hover:shadow-lg rounded-xl"
-              >
-                Inquire on WhatsApp
-              </Button>
-            </div>
-          )}
         </div>
       </div>
 
-      {/* Nylon Bird Protection Net — vertical: title → image → description */}
-      {showNylonNet && product.additionalProduct && (
-        <div className="mt-10 pt-8 border-t border-slate-200">
-          <div className="flex flex-col gap-4">
+      {/* Nylon Bird Protection Net — title → image + details */}
+      {showNylonNet && extra && (
+        <div className="mt-6 pt-6 border-t border-slate-200">
+          <h3 className={typo.title}>{extra.name}</h3>
 
-            {/* 1. Title */}
-            <h3 className="text-[20px] sm:text-[22px] font-bold text-navy-900 leading-snug">
-              {product.additionalProduct.name}
-            </h3>
-
-            {/* 2. Image */}
-            {product.additionalProduct.image && (
-              <div className="w-full max-w-sm rounded-[10px] overflow-hidden bg-slate-100 shadow-sm border border-slate-100 aspect-[4/3]">
+          <div className="mt-3 grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-8">
+            {nylonImage && (
+              <div className="md:col-span-2 min-w-0 rounded-[10px] overflow-hidden bg-slate-100 shadow-sm border border-slate-100 aspect-[4/3]">
                 <img
-                  src={
-                    product.additionalProduct.image.startsWith('/') ||
-                    product.additionalProduct.image.startsWith('http')
-                      ? product.additionalProduct.image
-                      : `/${product.additionalProduct.image}`
-                  }
-                  alt={product.additionalProduct.name}
-                  className="w-full h-full object-cover"
+                  src={nylonImage}
+                  alt={extra.name}
+                  className="block w-full h-full max-w-full object-cover"
                   loading="lazy"
                 />
               </div>
             )}
 
-            {/* 3. Description */}
-            {product.additionalProduct.description && (
-              <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed">
-                {product.additionalProduct.description}
-              </p>
-            )}
+            <div className="md:col-span-3 min-w-0">
+              {extra.description && <NylonDetails description={extra.description} />}
 
-          </div>
 
-          <div className="mt-6 pt-6 border-t border-slate-100">
-            <Button
-              as="a"
-              href={getProductInquiryUrl(product)}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="whatsapp"
-              size="md"
-              icon={MessageCircle}
-              className="font-bold shadow-md hover:shadow-lg rounded-xl"
-            >
-              Inquire on WhatsApp
-            </Button>
+            </div>
           </div>
         </div>
       )}

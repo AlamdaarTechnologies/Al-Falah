@@ -193,51 +193,55 @@ export const products = [
   },
 
   // ================= ROYAL BIRDNET SOLUTIONS =================
+
   {
     id: "hdpe-balcony-anti-bird-net",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
     name: "Hexagonal Fencing Net",
     category: "Hexagonal Fencing Net",
-    shortDescription: "Easy-to-install, corrosion-resistant HDPE fencing kits for gardens, farms, construction sites and sports fields.",
 
-    fullDescription: "Garden Fencing Nets offer a modern, efficient and user-friendly fencing solution. Designed as easy-to-install DIY kits, they provide a convenient option for households, architects, landscapers and large-scale users such as hotels, resorts and sports complexes. These fencing systems combine practicality with versatility, delivering a reliable and aesthetically pleasing fencing solution suitable for a wide range of applications.",
+    shortDescription: "A practical, durable, and versatile fencing solution for residential, commercial, and industrial needs.",
+
+    fullDescription: "Hexagonal Fencing Net is a durable and easy-to-install fencing solution suitable for homes, gardens, farms, commercial spaces, and outdoor areas. Made from high-quality HDPE material, it offers long-lasting performance, strength, and reliable protection. With excellent corrosion resistance and easy maintenance, it provides a practical and cost-effective fencing solution for residential, commercial, and industrial applications.",
 
     image: "/images/gardenfence (2).jpg",
     featured: true,
 
     features: [
-      "Long-lasting durability",
-      "Highly resistant to corrosion, even in coastal environments",
-      "Manufactured using high-quality HDPE",
-      "Components coated with corrosion-resistant materials",
-      "Easy to install and cost-effective solution"
+      "Made from high-quality HDPE",
+      "Durable and long-lasting",
+      "High corrosion resistance, suitable for coastal areas",
+      "Protective coating on components",
+      "Easy to install and maintain",
+      "Cost-effective fencing solution"
     ],
 
     specifications: {
       "Material": "High Density Polyethylene (HDPE)",
-      "Available Heights": "1 m, 1.2 m, 1.5 m, 2 m, 2.1 m, 2.5 m, 3 m",
-      "Roll Length": "25 m",
-      "Packaging Options": "Plastic Bags, Woven Bags, Carton Packaging"
+      "Available Heights": "1 MTR, 1.2 MTR, 1.5 MTR, 2 MTR, 2.1 MTR, 2.5 MTR, 3 MTR",
+      "Roll Length": "25 MTR",
+      "Packaging Options": "Plastic Bags, Woven Bags, Carton Boxes",
+      "Custom Packaging": "Available"
     },
 
     applications: [
-      "Garden fencing",
-      "Poultry farms",
-      "Construction sites",
-      "Sports fields",
+      "Gardens and Landscapes",
+      "Poultry Farms",
+      "Construction Sites",
+      "Sports Grounds",
       "Balconies",
-      "Railings and safety barriers"
+      "Railings and Safety Barriers"
     ],
 
     sizes: [
-      "1 m Height x 25 m Roll",
-      "1.2 m Height x 25 m Roll",
-      "1.5 m Height x 25 m Roll",
-      "2 m Height x 25 m Roll",
-      "2.1 m Height x 25 m Roll",
-      "2.5 m Height x 25 m Roll",
-      "3 m Height x 25 m Roll"
+      "1 MTR Height x 25 MTR Roll",
+      "1.2 MTR Height x 25 MTR Roll",
+      "1.5 MTR Height x 25 MTR Roll",
+      "2 MTR Height x 25 MTR Roll",
+      "2.1 MTR Height x 25 MTR Roll",
+      "2.5 MTR Height x 25 MTR Roll",
+      "3 MTR Height x 25 MTR Roll"
     ]
   },
 
@@ -289,7 +293,7 @@ export const products = [
     additionalProduct: {
       name: "Nylon Bird Protection Net",
       image: "/images/nylonbird.jpeg",
-      description: "Nylon Transparent Bird Net , Ply 0.60 and 0.80 , 3 MTR x 30 MTR"
+      description: "Nylon Transparent Bird Net\nPly: 0.60 and 0.80\nSize: 3 × 30 MTR",
     },
   },
 
@@ -328,7 +332,6 @@ export const products = [
         video: "/videos/spike.mp4",
         images: [
           "/images/monkey1.jpeg",
-          "/images/monkey2.jpeg"
         ],
         description: "Protect your property from monkey nuisance with our high-quality Monkey Spikes",
         specifications: [
@@ -464,7 +467,8 @@ export const products = [
     category: "Fiberglass Mesh (Adhesive / Non Adhesive)",
     shortDescription: "Alkali-resistant woven fiberglass mesh that reinforces walls and helps prevent cracks in construction work.",
     image: "/images/fibreglassout.jpeg",
-    detailImage: "/images/fibreglassin.jpeg",
+    detailImage: "/images/fibreglassout.jpeg",
+    images: ["/images/fibreglassin.jpeg"],
     fullDescription: "Fiberglass Mesh is a strong and durable reinforcement material designed for various construction applications. Made from woven fiberglass fabric with an alkali-resistant coating, it provides excellent strength, stability, and protection against wall cracks.\n\nIt is widely used in wall reinforcement, external wall insulation, roof waterproofing, and other construction projects.",
     features: [
       "High tensile strength and crack resistance",
@@ -480,7 +484,7 @@ export const products = [
       "Available Widths": "20 cm, 50 cm, 1 m, 1.5 m, 2 m",
       "Available Lengths": "20 m, 50 m, 100 m",
       "Available Colours": "White, Blue, Red, Orange, Green",
-      "Customization": "Available as per customer requirements",
+      "Customization": "available as per customer requirements",
       "Packaging Options": [
         "Plastic Bags",
         "Woven Bags",
@@ -509,7 +513,7 @@ export const products = [
     shortDescription: "Protects plants and crops from excessive sunlight and harsh weather while creating a suitable growing environment.",
     image: "/images/agro.jpeg",
     detailImage: "/images/agro.jpeg",
-    fullDescription: "Agro Shade Nets are designed to protect plants and crops from excessive sunlight, harmful UV rays, and harsh weather conditions. Made from high-quality HDPE material, they help create a suitable growing environment and support healthy crop growth.\n\nAvailable in different sunlight-blocking percentages to meet various agricultural and shading requirements.",
+    fullDescription: "Green Shade Nets are designed to protect plants and crops from excessive sunlight, harmful UV rays, and harsh weather conditions. Made from high-quality HDPE material, they help create a suitable growing environment and support healthy crop growth.\n\nAvailable in different sunlight-blocking percentages to meet various agricultural and shading requirements.",
     features: [
       "Strong reflective structure",
       "Single and double colour options",
@@ -607,7 +611,7 @@ export const products = [
     shortDescription: "Lightweight HDPE flat net that guards AC and cooler back panels from dust and debris while allowing airflow.",
     image: "/images/placeholders/square-net-card.svg",
     detailImage: "/images/placeholders/square-net-detail.svg",
-    fullDescription: "HDPE Net is a durable and lightweight extruded flat net made from high-quality polyethylene. It is designed to protect air conditioner and air cooler back panels from dust, debris, and external damage while allowing proper airflow.\n\nIts corrosion-resistant and maintenance-free properties make it suitable for both residential and industrial applications.",
+    fullDescription: "Square Net is a durable and lightweight extruded flat net made from high-quality polyethylene. It is designed to protect air conditioner and air cooler back panels from dust, debris, and external damage while allowing proper airflow.\n\nIts corrosion-resistant and maintenance-free properties make it suitable for both residential and industrial applications.",
     features: [
       "Made from durable HDPE material",
       "Non-corrosive and weather-resistant",

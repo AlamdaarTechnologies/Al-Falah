@@ -30,6 +30,16 @@ export function getProductInquiryUrl(product, selectedSize = null) {
 }
 
 /**
+ * Generates WhatsApp URL for a specific service (Services Section).
+ * @param {string} serviceName - Human-readable service name
+ * @returns {string} WhatsApp URL with pre-filled message
+ */
+export function getServiceInquiryUrl(serviceName) {
+  const text = `Hello, I am interested in your ${serviceName}. Could you please share more details, pricing and availability?`;
+  return buildWhatsAppLink(text);
+}
+
+/**
  * Generates WhatsApp URL for a specific division
  */
 export function getDivisionInquiryUrl(divisionName) {

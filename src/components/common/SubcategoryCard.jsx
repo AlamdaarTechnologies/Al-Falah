@@ -1,3 +1,5 @@
+import { typo } from './productFormat';
+
 /**
  * Subcategory card — full-width horizontal row (image left, name right).
  * Used in vertical single-column lists (Sports Net, Mosquito Net, Fiberglass Mesh, etc.)
@@ -20,7 +22,7 @@ export default function SubcategoryCard({ item, onSelect }) {
       </span>
 
       {/* Title on the right, vertically centred */}
-      <span className="font-sans text-base sm:text-lg font-semibold text-slate-900 group-hover:text-navy-900 transition-colors leading-snug">
+      <span className={`font-sans min-w-0 ${typo.title}`}>
         {item.name}
       </span>
     </button>

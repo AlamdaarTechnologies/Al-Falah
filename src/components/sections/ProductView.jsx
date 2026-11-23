@@ -6,9 +6,10 @@ import SubcategoryCard from '../common/SubcategoryCard';
 import SubcategoryDetail from '../common/SubcategoryDetail';
 import ServicesSection from './ServicesSection';
 import { products } from '../../data/products';
+import { typo } from '../common/productFormat';
 
 const toTop = () => window.scrollTo({ top: 0, behavior: 'instant' });
-const detailCard = 'bg-white rounded-[28px] sm:rounded-[32px] p-6 sm:p-10 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-white';
+const detailCard = 'bg-white rounded-[28px] sm:rounded-[32px] p-4 sm:p-6 md:p-8 shadow-[0_15px_35px_rgba(0,0,0,0.06)] border border-white';
 
 /**
  * Focused view for one solution. Levels:
@@ -54,7 +55,7 @@ export default function ProductView({ division }) {
     </>
   );
   let body = (
-    <div className="space-y-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
       {list.map((p) => (
         <ProductListItem key={p.id} product={p} onSelect={(id) => go({ product: id })} />
       ))}
@@ -64,10 +65,10 @@ export default function ProductView({ division }) {
   if (product) {
     heading = (
       <>
-        <h1 id="products-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 tracking-tight">{product.name}</h1>
+        <h1 id="products-heading" className={typo.title}>{product.name}</h1>
         {/* Short description: product detail pages only (Royal Bird Net). Plumbing keeps its existing layout. */}
         {division.id === 'royal-birdnet' && product.shortDescription && (
-          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl">
+          <p className={`mt-2 border-l-[3px] border-gold-400 pl-3 max-w-3xl ${typo.description}`}>
             {product.shortDescription}
           </p>
         )}
@@ -75,7 +76,7 @@ export default function ProductView({ division }) {
     );
 
     if (sub) {
-      heading = <h1 id="products-heading" className="text-2xl sm:text-3xl lg:text-4xl font-bold text-navy-900 tracking-tight">{sub.name}</h1>;
+      heading = <h1 id="products-heading" className={typo.title}>{sub.name}</h1>;
       body = <div className={detailCard}><SubcategoryDetail parent={product} item={sub} /></div>;
     } else if (product.subcategories) {
       body = (
