@@ -2,7 +2,7 @@ export const divisions = [
   {
     id: "royal-birdnet",
     shortName: "THE ROYAL BIRD NET",
-    cardTitle: "The Royal Bird Net", // title-case title used on the homepage card only
+    cardTitle: "THE ROYAL BIRD NET", // title-case title used on the homepage card only
     title: "Fibre Mesh & Netting",
     badge: "Ready Stock",
     image: "/images/fibremesh.jpeg",
@@ -13,7 +13,7 @@ export const divisions = [
   {
     id: "plumbing-sanitary",
     shortName: "PLUMBING AND SANITARY",
-    cardTitle: "Plumbing & Sanitary",
+    cardTitle: "PLUMBING AND SANITARY",
     title: "Plumbing & Sanitary",
     //tagline: "ISI-certified CPVC/UPVC pipes, brass valves, sanitary fittings and drainage systems for residential and commercial projects.",
     //badge: "ISI Certified",
