@@ -205,7 +205,7 @@ export const products = [
 
     fullDescription: "Hexagonal Fencing Net is a durable and easy-to-install fencing solution suitable for homes, gardens, farms, commercial spaces, and outdoor areas. Made from high-quality HDPE material, it offers long-lasting performance, strength, and reliable protection. With excellent corrosion resistance and easy maintenance, it provides a practical and cost-effective fencing solution for residential, commercial, and industrial applications.",
 
-    image: "/images/gardenfence (2).jpg",
+    image: "/images/gardenfence (2).webp",
     featured: true,
 
     features: [
@@ -255,8 +255,8 @@ export const products = [
 
     fullDescription: "We offer high-quality Bird Nets designed to provide reliable protection for homes, balconies, buildings, industries, and open spaces. Available in multiple sizes, colours, and ply options to meet different requirements.",
 
-    image: "/images/birdnet.jpeg",
-    detailImage: "/images/birdnetcolors.jpeg",
+    image: "/images/birdnet.webp",
+    detailImage: "/images/birdnetcolors.webp",
     featured: true,
 
     features: [
@@ -292,7 +292,7 @@ export const products = [
 
     additionalProduct: {
       name: "Nylon Bird Protection Net",
-      image: "/images/nylonbird.jpeg",
+      image: "/images/nylonbird.webp",
       description: "Nylon Transparent Bird Net\nPly: 0.60 and 0.80\nSize: 3 × 30 MTR",
     },
   },
@@ -308,12 +308,12 @@ export const products = [
     name: "Sports Net",
     category: "Sports Net",
     shortDescription: "Cricket, turf, badminton and volleyball nets for sports grounds and courts.",
-    image: "/images/products/sports-net.jpg",
+    image: "/images/products/sports-net.svg",
     subcategories: [
-      { id: "cricket-net", name: "Cricket Net", image: "/images/products/cricket-net.jpg" },
-      { id: "turf-net", name: "Turf Net", image: "/images/products/turf-net.jpg" },
-      { id: "badminton-net", name: "Badminton Net", image: "/images/products/badminton-net.jpg" },
-      { id: "volleyball-net", name: "Volleyball Net", image: "/images/products/volleyball-net.jpg" },
+      { id: "cricket-net", name: "Cricket Net", image: "/images/products/sports-net.svg" },
+      { id: "turf-net", name: "Turf Net", image: "/images/products/sports-net.svg" },
+      { id: "badminton-net", name: "Badminton Net", image: "/images/products/sports-net.svg" },
+      { id: "volleyball-net", name: "Volleyball Net", image: "/images/products/sports-net.svg" },
     ],
   },
 
@@ -324,14 +324,14 @@ export const products = [
     name: "Monkey Spike and Bird Spike",
     category: "Monkey Spike & Bird Spike",
     shortDescription: "Spikes that keep monkeys and birds off ledges, rooftops, windows and other surfaces.",
-    image: "/images/birdspike123.jpeg",
+    image: "/images/birdspike123.webp",
     sections: [
       {
         id: "monkey-spike",
         title: "Monkey Spike",
         video: "/videos/spike.mp4",
         images: [
-          "/images/monkey1.jpeg",
+          "/images/monkey1.webp",
         ],
         description: "Protect your property from monkey nuisance with our high-quality Monkey Spikes",
         specifications: [
@@ -346,8 +346,8 @@ export const products = [
         title: "Bird Spike",
         video: "",
         images: [
-          "/images/bird1.jpeg",
-          "/images/bird2.jpeg"
+          "/images/bird1.webp",
+          "/images/bird2.webp"
         ],
         description: "Bird Spikes: An effective and humane solution to prevent birds from sitting, nesting, and roosting on ledges, rooftops, windows, and other surfaces.",
         specifications: [
@@ -366,8 +366,8 @@ export const products = [
     name: "Construction Safety Net",
     category: "Construction Safety Net",
     shortDescription: "Safety nets with a 12 mm four-sided outer rope, in double-layer, single-layer and braided options.",
-    image: "/images/construction.jpeg",
-    detailImage: "/images/construction.jpeg",
+    image: "/images/construction.webp",
+    detailImage: "/images/construction.webp",
     fullDescription: "Construction Safety Nets with 12 mm four-sided outer rope.",
     detailSections: [
       {
@@ -389,7 +389,7 @@ export const products = [
     name: "Mosquito Net Fiber / PVC",
     category: "Mosquito Net Fiber / PVC",
     shortDescription: "Keeps mosquitoes and insects out of doors and windows while letting fresh air flow through.",
-    image: "/images/mosquito.jpeg",
+    image: "/images/mosquito.webp",
 
     description:
       "Mosquito Net is a durable and economical solution designed to keep mosquitoes and insects out while allowing fresh air to flow freely. Its uniform thickness and special additives ensure long-lasting performance and reliability.",
@@ -400,7 +400,7 @@ export const products = [
         title: "Mosquito Net Fiber / PVC",
 
         images: [
-          "/images/mosquito.jpeg"
+          "/images/mosquito.webp"
         ],
 
         description:
@@ -466,9 +466,9 @@ export const products = [
     name: "Fiberglass Mesh (Adhesive / Non Adhesive)",
     category: "Fiberglass Mesh (Adhesive / Non Adhesive)",
     shortDescription: "Alkali-resistant woven fiberglass mesh that reinforces walls and helps prevent cracks in construction work.",
-    image: "/images/fibreglassout.jpeg",
-    detailImage: "/images/fibreglassout.jpeg",
-    images: ["/images/fibreglassin.jpeg"],
+    image: "/images/fibreglassout.webp",
+    detailImage: "/images/fibreglassout.webp",
+    images: ["/images/fibreglassin.webp"],
     fullDescription: "Fiberglass Mesh is a strong and durable reinforcement material designed for various construction applications. Made from woven fiberglass fabric with an alkali-resistant coating, it provides excellent strength, stability, and protection against wall cracks.\n\nIt is widely used in wall reinforcement, external wall insulation, roof waterproofing, and other construction projects.",
     features: [
       "High tensile strength and crack resistance",
@@ -511,8 +511,8 @@ export const products = [
     name: "Green Shade Net",
     category: "Green Shade Net",
     shortDescription: "Protects plants and crops from excessive sunlight and harsh weather while creating a suitable growing environment.",
-    image: "/images/agro.jpeg",
-    detailImage: "/images/agro.jpeg",
+    image: "/images/agro.webp",
+    detailImage: "/images/agro.webp",
     fullDescription: "Green Shade Nets are designed to protect plants and crops from excessive sunlight, harmful UV rays, and harsh weather conditions. Made from high-quality HDPE material, they help create a suitable growing environment and support healthy crop growth.\n\nAvailable in different sunlight-blocking percentages to meet various agricultural and shading requirements.",
     features: [
       "Strong reflective structure",

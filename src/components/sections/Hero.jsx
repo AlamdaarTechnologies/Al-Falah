@@ -8,7 +8,7 @@ export default function Hero() {
         {/* Floating 3D Card with Subtle Gold Border and Soft Shadows (matching reference image) */}
         <div className="relative bg-white rounded-[24px] sm:rounded-[32px] lg:rounded-[38px] overflow-hidden border border-[#e7e1d7] shadow-[0_20px_45px_rgba(8,31,65,0.06),0_4px_16px_rgba(0,0,0,0.02)] hover:shadow-[0_26px_55px_rgba(8,31,65,0.09),0_8px_20px_rgba(0,0,0,0.03)] transition-all duration-300">
           <img
-            src="/images/hero-banner.jpg"
+            src="/images/hero-banner.webp"
             alt="Al Falah Hardware & Sanitary"
             width={1280}
             height={762}

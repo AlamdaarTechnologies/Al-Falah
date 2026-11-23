@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
  * Used for every division (Royal Bird Net and Plumbing).
  * The dark base colour keeps the title readable even if an image fails to load.
  */
-export default function ProductListItem({ product, onSelect }) {
+export default function ProductListItem({ product, onSelect, priority = false }) {
   const open = () => onSelect(product.id);
 
   return (
@@ -25,7 +25,9 @@ export default function ProductListItem({ product, onSelect }) {
       <img
         src={product.image}
         alt=""
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
 

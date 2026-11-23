@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#eef4f7"/>
+  <rect x="80" y="95" width="640" height="360" rx="24" fill="#dbe9e8"/>
+  <path d="M400 95v360M80 275h640M230 95v360M570 95v360" fill="none" stroke="#fff" stroke-width="8"/>
+  <rect x="390" y="150" width="20" height="250" rx="4" fill="#142d50"/>
+  <path d="M400 160v230" stroke="#fff" stroke-width="2" stroke-dasharray="8 8"/>
+  <path d="M383 150h34" stroke="#142d50" stroke-width="8" stroke-linecap="round"/>
+  <text x="400" y="515" fill="#142d50" font-family="Arial, sans-serif" font-size="27" font-weight="700" text-anchor="middle">SPORTS NETTING</text>
+  <text x="400" y="550" fill="#64748b" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Product photo coming soon</text>
+</svg>

@@ -76,6 +76,8 @@ function FeaturedCarousel({ services, active, setActive, paused, setPaused }) {
             alt={s.name}
             className="absolute inset-0 w-full h-full object-cover"
             loading={i === 0 ? 'eager' : 'lazy'}
+            fetchPriority={i === active ? 'high' : 'auto'}
+            decoding="async"
           />
           {/* gradient */}
           <div
@@ -153,6 +155,7 @@ function ServiceCard({ service }) {
         src={service.image}
         alt={service.name}
         loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
       {/* gradient */}

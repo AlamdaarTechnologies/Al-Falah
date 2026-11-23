@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#eef5ef"/>
+  <path d="M0 430h800v170H0z" fill="#d7e8d5"/>
+  <path d="M399 155v275" stroke="#795b3b" stroke-width="28" stroke-linecap="round"/>
+  <path d="M399 270c-92-4-120-71-94-120 56 1 98 37 94 120Zm2-39c7-81 57-122 115-112 17 57-26 112-115 112Z" fill="#4a8b61"/>
+  <path d="M320 310h160l-18 126H338z" fill="#c6d9cd" fill-opacity=".6" stroke="#43816a" stroke-width="8"/>
+  <path d="M330 335h140m-144 32h148m-152 32h156M350 310v126m40-126v126m40-126v126" stroke="#43816a" stroke-width="4" opacity=".8"/>
+  <text x="400" y="505" fill="#173c36" font-family="Arial, sans-serif" font-size="27" font-weight="700" text-anchor="middle">TREE GUARD</text>
+  <text x="400" y="540" fill="#64748b" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Product photo coming soon</text>
+</svg>

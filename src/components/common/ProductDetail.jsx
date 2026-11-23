@@ -73,6 +73,8 @@ export default function ProductDetail({ product }) {
               src={displayImage}
               alt={product.name}
               className="block w-full max-w-full aspect-[4/3] object-cover"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
 
@@ -85,6 +87,7 @@ export default function ProductDetail({ product }) {
                   alt={`${product.name} ${idx + 2}`}
                   className="block w-full max-w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             ))
@@ -130,6 +133,7 @@ export default function ProductDetail({ product }) {
                   alt={extra.name}
                   className="block w-full h-full max-w-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             )}

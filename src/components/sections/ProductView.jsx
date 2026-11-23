@@ -56,8 +56,13 @@ export default function ProductView({ division }) {
   );
   let body = (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-      {list.map((p) => (
-        <ProductListItem key={p.id} product={p} onSelect={(id) => go({ product: id })} />
+      {list.map((p, index) => (
+        <ProductListItem
+          key={p.id}
+          product={p}
+          onSelect={(id) => go({ product: id })}
+          priority={index === 0}
+        />
       ))}
     </div>
   );

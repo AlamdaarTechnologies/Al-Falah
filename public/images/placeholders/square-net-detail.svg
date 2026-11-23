@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#f3f7fa"/>
+  <circle cx="400" cy="275" r="205" fill="#e3edf2"/>
+  <rect x="225" y="110" width="350" height="330" rx="18" fill="#d7e6ed" stroke="#142d50" stroke-width="10"/>
+  <path d="M270 125v300m45-300v300m45-300v300m45-300v300m45-300v300m45-300v300m45-300v300m-265-260h260m-260 45h260m-260 45h260m-260 45h260m-260 45h260m-260 45h260" stroke="#6b9ab0" stroke-width="4"/>
+  <text x="400" y="505" fill="#142d50" font-family="Arial, sans-serif" font-size="27" font-weight="700" text-anchor="middle">SQUARE PROTECTION NET</text>
+  <text x="400" y="540" fill="#64748b" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Product photo coming soon</text>
+</svg>

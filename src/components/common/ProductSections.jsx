@@ -54,7 +54,9 @@ export default function ProductSections({ product }) {
                           key={src}
                           src={src}
                           alt={`${section.title} ${i + 1}`}
-                          loading="lazy"
+                          loading={sectionIdx === 0 && i === 0 ? 'eager' : 'lazy'}
+                          fetchPriority={sectionIdx === 0 && i === 0 ? 'high' : 'auto'}
+                          decoding="async"
                           className="block w-full max-w-full h-auto rounded-[10px]"
                         />
                       ))}
