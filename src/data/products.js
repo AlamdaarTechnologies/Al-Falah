@@ -194,57 +194,10 @@ export const products = [
 
   // ================= ROYAL BIRDNET SOLUTIONS =================
 
-  {
-    id: "hdpe-balcony-anti-bird-net",
-    divisionId: "royal-birdnet",
-    divisionName: "THE ROYAL BIRD NET",
-    name: "Hexagonal Fencing Net",
-    category: "Hexagonal Fencing Net",
 
-    shortDescription: "A practical, durable, and versatile fencing solution for residential, commercial, and industrial needs.",
+  // ================= ROYAL BIRDNET SOLUTIONS =================
 
-    fullDescription: "Hexagonal Fencing Net is a durable and easy-to-install fencing solution suitable for homes, gardens, farms, commercial spaces, and outdoor areas. Made from high-quality HDPE material, it offers long-lasting performance, strength, and reliable protection. With excellent corrosion resistance and easy maintenance, it provides a practical and cost-effective fencing solution for residential, commercial, and industrial applications.",
-
-    image: "/images/gardenfence (2).webp",
-    featured: true,
-
-    features: [
-      "Made from high-quality HDPE",
-      "Durable and long-lasting",
-      "High corrosion resistance, suitable for coastal areas",
-      "Protective coating on components",
-      "Easy to install and maintain",
-      "Cost-effective fencing solution"
-    ],
-
-    specifications: {
-      "Material": "High Density Polyethylene (HDPE)",
-      "Available Heights": "1 MTR, 1.2 MTR, 1.5 MTR, 2 MTR, 2.1 MTR, 2.5 MTR, 3 MTR",
-      "Roll Length": "25 MTR",
-      "Packaging Options": "Plastic Bags, Woven Bags, Carton Boxes",
-      "Custom Packaging": "Available"
-    },
-
-    applications: [
-      "Gardens and Landscapes",
-      "Poultry Farms",
-      "Construction Sites",
-      "Sports Grounds",
-      "Balconies",
-      "Railings and Safety Barriers"
-    ],
-
-    sizes: [
-      "1 MTR Height x 25 MTR Roll",
-      "1.2 MTR Height x 25 MTR Roll",
-      "1.5 MTR Height x 25 MTR Roll",
-      "2 MTR Height x 25 MTR Roll",
-      "2.1 MTR Height x 25 MTR Roll",
-      "2.5 MTR Height x 25 MTR Roll",
-      "3 MTR Height x 25 MTR Roll"
-    ]
-  },
-
+  // 1. BIRD PROTECTION NET
   {
     id: "ss-304-anti-bird-spikes",
     divisionId: "royal-birdnet",
@@ -252,18 +205,14 @@ export const products = [
     name: "Bird Protection Net",
     category: "Bird Protection Net",
     shortDescription: "Reliable bird protection for homes, balconies, buildings and industries, in ready-made sizes and rolls.",
-
     fullDescription: "We offer high-quality Bird Nets designed to provide reliable protection for homes, balconies, buildings, industries, and open spaces. Available in multiple sizes, colours, and ply options to meet different requirements.",
-
     image: "/images/birdnet.webp",
     detailImage: "/images/birdnetcolors.webp",
     featured: true,
-
     features: [
       "Quality & Versatility",
       "Whether you need a small ready-made net or a large roll for commercial or industrial applications, we offer multiple options to suit your requirements."
     ],
-
     specifications: {
       "Ready-Made Bird Net Sizes": [
         "8 FT × 6 FT",
@@ -275,7 +224,6 @@ export const products = [
         "10 FT × 15 FT",
         "10 FT × 20 FT"
       ],
-
       "Bird Net Rolls": [
         "2 MTR × 30 MTR",
         "2.5 MTR × 30 MTR",
@@ -284,12 +232,9 @@ export const products = [
         "6 MTR × 30 MTR",
         "10 MTR × 30 MTR"
       ],
-
       "Available Colours": "White | Black | Green | Blue",
-
       "Available Ply": "12 Ply | 15 Ply | 18 Ply | 24 Ply"
     },
-
     additionalProduct: {
       name: "Nylon Bird Protection Net",
       image: "/images/nylonbird.webp",
@@ -297,26 +242,7 @@ export const products = [
     },
   },
 
-  // ===== CATALOGUE =====
-  // Image fields: `image` = main catalogue card, `detailImage` = product detail page (falls back to `image`).
-  // Placeholder images live in /public/images/placeholders. To replace one, overwrite the file or change the path here.
-  // Main cards open: a subcategory grid (`subcategories`), a multi-section page (`sections`) or the standard detail page.
-  {
-    id: "sports-net",
-    divisionId: "royal-birdnet",
-    divisionName: "THE ROYAL BIRD NET",
-    name: "Sports Net",
-    category: "Sports Net",
-    shortDescription: "Cricket, turf, badminton and volleyball nets for sports grounds and courts.",
-    image: "/images/products/sports-net.svg",
-    subcategories: [
-      { id: "cricket-net", name: "Cricket Net", image: "/images/products/sports-net.svg" },
-      { id: "turf-net", name: "Turf Net", image: "/images/products/sports-net.svg" },
-      { id: "badminton-net", name: "Badminton Net", image: "/images/products/sports-net.svg" },
-      { id: "volleyball-net", name: "Volleyball Net", image: "/images/products/sports-net.svg" },
-    ],
-  },
-
+  // 2. BIRD SPIKE & MONKEY SPIKE
   {
     id: "bird-monkey-spike",
     divisionId: "royal-birdnet",
@@ -359,17 +285,47 @@ export const products = [
     ]
   },
 
+  // 3. SPORTS NET
+  {
+    id: "sports-net",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Sports Net",
+    category: "Sports Net",
+    shortDescription: "Cricket, turf, badminton and volleyball nets for sports grounds and courts.",
+    image: "/images/products/sports-net.svg",
+    subcategories: [
+      { id: "cricket-net", name: "Cricket Net", image: "/images/products/cricket-net.svg" },
+      { id: "turf-net", name: "Turf Net", image: "/images/products/turf-net.svg" },
+      { id: "badminton-net", name: "Badminton Net", image: "/images/products/badminton-net.svg" },
+      { id: "volleyball-net", name: "Volleyball Net", image: "/images/products/volleyball-net.svg" },
+    ],
+  },
+
+  // 4. CONSTRUCTION SAFETY NET
   {
     id: "construction-safety-net",
     divisionId: "royal-birdnet",
     divisionName: "THE ROYAL BIRD NET",
     name: "Construction Safety Net",
     category: "Construction Safety Net",
-    shortDescription: "Safety nets with a 12 mm four-sided outer rope, in double-layer, single-layer and braided options.",
+    shortDescription: "Protect your workers, pedestrians, and property with reliable safety net solutions.",
     image: "/images/construction.webp",
     detailImage: "/images/construction.webp",
-    fullDescription: "Construction Safety Nets with 12 mm four-sided outer rope.",
+    fullDescription:
+      "Ensure a safer construction site with our premium-quality Construction Safety Nets. Featuring high-strength, durable, weather-resistant netting with a 12 mm four-sided outer rope, our safety nets help reduce the risk of falling debris and accidental falls. Suitable for residential, commercial, and industrial construction projects, with professional installation by experienced technicians.",
     detailSections: [
+      {
+        title: "Key Features",
+        items: [
+          "High-strength, durable netting",
+          "Helps reduce the risk of falling debris and accidental falls",
+          "Weather-resistant and long-lasting material",
+          "Professional installation by experienced technicians",
+          "Suitable for residential, commercial, and industrial construction projects",
+          "12 mm four-sided outer rope"
+        ]
+      },
       {
         title: "Available In",
         items: [
@@ -379,9 +335,54 @@ export const products = [
         ]
       }
     ],
-    closingNote: "For pricing and further details, please contact us."
   },
 
+  // 5. HEXAGONAL NET
+  {
+    id: "hdpe-balcony-anti-bird-net",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Hexagonal Fencing Net",
+    category: "Hexagonal Fencing Net",
+    shortDescription: "A practical, durable, and versatile fencing solution for residential, commercial, and industrial needs.",
+    fullDescription: "Hexagonal Fencing Net is a durable and easy-to-install fencing solution suitable for homes, gardens, farms, commercial spaces, and outdoor areas. Made from high-quality HDPE material, it offers long-lasting performance, strength, and reliable protection. With excellent corrosion resistance and easy maintenance, it provides a practical and cost-effective fencing solution for residential, commercial, and industrial applications.",
+    image: "/images/gardenfence (2).webp",
+    featured: true,
+    features: [
+      "Made from high-quality HDPE",
+      "Durable and long-lasting",
+      "High corrosion resistance, suitable for coastal areas",
+      "Protective coating on components",
+      "Easy to install and maintain",
+      "Cost-effective fencing solution"
+    ],
+    specifications: {
+      "Material": "High Density Polyethylene (HDPE)",
+      "Available Heights": "1 MTR, 1.2 MTR, 1.5 MTR, 2 MTR, 2.1 MTR, 2.5 MTR, 3 MTR",
+      "Roll Length": "25 MTR",
+      "Packaging Options": "Plastic Bags, Woven Bags, Carton Boxes",
+      "Custom Packaging": "Available"
+    },
+    applications: [
+      "Gardens and Landscapes",
+      "Poultry Farms",
+      "Construction Sites",
+      "Sports Grounds",
+      "Balconies",
+      "Railings and Safety Barriers"
+    ],
+    sizes: [
+      "1 MTR Height x 25 MTR Roll",
+      "1.2 MTR Height x 25 MTR Roll",
+      "1.5 MTR Height x 25 MTR Roll",
+      "2 MTR Height x 25 MTR Roll",
+      "2.1 MTR Height x 25 MTR Roll",
+      "2.5 MTR Height x 25 MTR Roll",
+      "3 MTR Height x 25 MTR Roll"
+    ]
+  },
+
+  // 6. MOSQUITO NET
   {
     id: "mosquito-net",
     divisionId: "royal-birdnet",
@@ -390,22 +391,17 @@ export const products = [
     category: "Mosquito Net Fiber / PVC",
     shortDescription: "Keeps mosquitoes and insects out of doors and windows while letting fresh air flow through.",
     image: "/images/mosquito.webp",
-
     description:
       "Mosquito Net is a durable and economical solution designed to keep mosquitoes and insects out while allowing fresh air to flow freely. Its uniform thickness and special additives ensure long-lasting performance and reliability.",
-
     sections: [
       {
         id: "mosquito-net-details",
         title: "Mosquito Net Fiber / PVC",
-
         images: [
           "/images/mosquito.webp"
         ],
-
         description:
           "Mosquito Net is a durable and economical solution designed to keep mosquitoes and insects out while allowing fresh air to flow freely. Its uniform thickness and special additives ensure long-lasting performance and reliability.",
-
         features: [
           "Helps prevent mosquitoes and insects from entering",
           "Allows fresh air circulation",
@@ -413,7 +409,6 @@ export const products = [
           "Easy to install and maintain",
           "Durable and cost-effective"
         ],
-
         specifications: [
           {
             title: "Available Colour",
@@ -452,13 +447,58 @@ export const products = [
             ]
           }
         ],
-
         closingNote:
           "A simple, effective, and reliable solution for insect protection and fresh air circulation."
       }
     ]
   },
 
+  // 7. AGRO SHADE NET
+  {
+    id: "agro-shade-net",
+    divisionId: "royal-birdnet",
+    divisionName: "THE ROYAL BIRD NET",
+    name: "Green Shade Net",
+    category: "Green Shade Net",
+    shortDescription: "Protects plants and crops from excessive sunlight and harsh weather while creating a suitable growing environment.",
+    image: "/images/agro.webp",
+    detailImage: "/images/agro.webp",
+    fullDescription: "Green Shade Nets are designed to protect plants and crops from excessive sunlight, harmful UV rays, and harsh weather conditions. Made from high-quality HDPE material, they help create a suitable growing environment and support healthy crop growth.\n\nAvailable in different sunlight-blocking percentages to meet various agricultural and shading requirements.",
+    features: [
+      "Strong reflective structure",
+      "Single and double colour options",
+      "UV-stabilized for long outdoor life",
+      "Helps reduce fertilizer leaching",
+      "Supports air circulation and crop protection",
+      "Durable, flexible, and weather-resistant"
+    ],
+    specifications: {
+      "Material": "High-Density Polyethylene (HDPE)",
+      "Sunlight Blocking": "30% – 95%",
+      "Roll Sizes and Readymade Sizes": "Various widths and lengths available.",
+      "Colour": "Green (other colours available)",
+      "Type": "Single and double colour options",
+      "Packaging Options": [
+        "Plastic Bags",
+        "Woven Bags",
+        "Carton Packaging",
+        "Custom Packaging Available"
+      ]
+    },
+    applications: [
+      "Greenhouses",
+      "Agriculture and Crop Protection",
+      "Poultry Farms",
+      "Construction Sites",
+      "Truck Shade Covers",
+      "Sports Arenas (Cricket, Football, Tennis)",
+      "Exhibition Hangers",
+      "Fish Tanks and Aquaculture Areas"
+    ],
+    closingNote: "A durable and versatile shading solution for agriculture, commercial, and outdoor applications."
+  },
+
+  // 8. FIBER MESH
   {
     id: "fiberglass-mesh",
     divisionId: "royal-birdnet",
@@ -504,50 +544,7 @@ export const products = [
     closingNote: "A reliable reinforcement solution for stronger, more durable, and crack-resistant construction."
   },
 
-  {
-    id: "agro-shade-net",
-    divisionId: "royal-birdnet",
-    divisionName: "THE ROYAL BIRD NET",
-    name: "Green Shade Net",
-    category: "Green Shade Net",
-    shortDescription: "Protects plants and crops from excessive sunlight and harsh weather while creating a suitable growing environment.",
-    image: "/images/agro.webp",
-    detailImage: "/images/agro.webp",
-    fullDescription: "Green Shade Nets are designed to protect plants and crops from excessive sunlight, harmful UV rays, and harsh weather conditions. Made from high-quality HDPE material, they help create a suitable growing environment and support healthy crop growth.\n\nAvailable in different sunlight-blocking percentages to meet various agricultural and shading requirements.",
-    features: [
-      "Strong reflective structure",
-      "Single and double colour options",
-      "UV-stabilized for long outdoor life",
-      "Helps reduce fertilizer leaching",
-      "Supports air circulation and crop protection",
-      "Durable, flexible, and weather-resistant"
-    ],
-    specifications: {
-      "Material": "High-Density Polyethylene (HDPE)",
-      "Sunlight Blocking": "30% – 95%",
-      "Roll Sizes and Readymade Sizes": "Various widths and lengths available.",
-      "Colour": "Green (other colours available)",
-      "Type": "Single and double colour options",
-      "Packaging Options": [
-        "Plastic Bags",
-        "Woven Bags",
-        "Carton Packaging",
-        "Custom Packaging Available"
-      ]
-    },
-    applications: [
-      "Greenhouses",
-      "Agriculture and Crop Protection",
-      "Poultry Farms",
-      "Construction Sites",
-      "Truck Shade Covers",
-      "Sports Arenas (Cricket, Football, Tennis)",
-      "Exhibition Hangers",
-      "Fish Tanks and Aquaculture Areas"
-    ],
-    closingNote: "A durable and versatile shading solution for agriculture, commercial, and outdoor applications."
-  },
-
+  // 9. TREE GUARD
   {
     id: "tree-guard",
     divisionId: "royal-birdnet",
@@ -602,6 +599,7 @@ export const products = [
     closingNote: "A smart, durable, and eco-friendly solution for protecting young trees and supporting greener surroundings."
   },
 
+  // 10. SQUARE NET
   {
     id: "separation-net",
     divisionId: "royal-birdnet",
@@ -640,3 +638,4 @@ export const products = [
     closingNote: "A lightweight, durable, and reliable protection solution for residential and industrial equipment."
   },
 ];
+

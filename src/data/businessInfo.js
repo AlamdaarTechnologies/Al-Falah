@@ -16,7 +16,7 @@ export const businessInfo = {
   // Phone & Direct Inquiries
   phonePrimary: "+91 8401742763",
   phoneSecondary: "+91 8401742763",
-  address: "Shop No. 00, Example Market, Main Road, Vadodara, Gujarat 390000", // Add the shop address here to show it in the Contact section
+  address: "GROUND FLOOR, MUBARAKA MANJIL,CHITEKHAN GALI GENDIGATE VADODARA GUJARAT", // Add the shop address here to show it in the Contact section
   email: "sales@alfalahhardware.com",
 
   // Operating Hours

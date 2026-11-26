@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradJoint" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#173e63"/>
+      <stop offset="100%" stop-color="#0a1d30"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#bgGradJoint)"/>
+  <!-- Joint Coupling Graphic -->
+  <rect x="150" y="200" width="220" height="70" rx="10" fill="#cbd5e1"/>
+  <rect x="430" y="200" width="220" height="70" rx="10" fill="#cbd5e1"/>
+  <rect x="330" y="170" width="140" height="130" rx="20" fill="#f59e0b" stroke="#ffffff" stroke-width="4"/>
+  <!-- Joint Fasteners -->
+  <circle cx="360" cy="205" r="10" fill="#1e293b"/>
+  <circle cx="440" cy="205" r="10" fill="#1e293b"/>
+  <circle cx="360" cy="265" r="10" fill="#1e293b"/>
+  <circle cx="440" cy="265" r="10" fill="#1e293b"/>
+  <rect x="40" y="40" width="160" height="36" rx="12" fill="#ffffff" opacity="0.12"/>
+  <text x="120" y="63" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.5">CATEGORY 04</text>
+</svg>

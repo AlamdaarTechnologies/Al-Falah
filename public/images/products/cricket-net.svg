@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8f3f8"/>
+      <stop offset="100%" stop-color="#d4e8f2"/>
+    </linearGradient>
+    <linearGradient id="grassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#438a5e"/>
+      <stop offset="100%" stop-color="#2d6a45"/>
+    </linearGradient>
+    <linearGradient id="pitchGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d6b88d"/>
+      <stop offset="100%" stop-color="#c4a274"/>
+    </linearGradient>
+    <pattern id="cricketMesh" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 0 0 L 16 16 M 16 0 L 0 16" fill="none" stroke="#25476a" stroke-width="1.2" opacity="0.65"/>
+    </pattern>
+  </defs>
+  <!-- Background Sky -->
+  <rect width="800" height="500" rx="20" fill="url(#skyGrad)"/>
+  
+  <!-- Ground Grass -->
+  <rect y="280" width="800" height="220" fill="url(#grassGrad)"/>
+  
+  <!-- Cricket Pitch Trapezoid -->
+  <polygon points="260,500 540,500 480,280 320,280" fill="url(#pitchGrad)"/>
+  <!-- Pitch Crease Lines -->
+  <line x1="330" y1="310" x2="470" y2="310" stroke="#ffffff" stroke-width="3" opacity="0.8"/>
+  <line x1="280" y1="460" x2="520" y2="460" stroke="#ffffff" stroke-width="4" opacity="0.9"/>
+  <line x1="375" y1="460" x2="375" y2="485" stroke="#ffffff" stroke-width="3" opacity="0.8"/>
+  <line x1="425" y1="460" x2="425" y2="485" stroke="#ffffff" stroke-width="3" opacity="0.8"/>
+
+  <!-- Net Support Poles -->
+  <line x1="90" y1="90" x2="90" y2="440" stroke="#142d50" stroke-width="10" stroke-linecap="round"/>
+  <line x1="710" y1="90" x2="710" y2="440" stroke="#142d50" stroke-width="10" stroke-linecap="round"/>
+  <line x1="250" y1="110" x2="250" y2="440" stroke="#142d50" stroke-width="8" stroke-linecap="round"/>
+  <line x1="550" y1="110" x2="550" y2="440" stroke="#142d50" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Net Cables Top & Bottom -->
+  <line x1="90" y1="110" x2="710" y2="110" stroke="#0a192f" stroke-width="6"/>
+  <line x1="90" y1="420" x2="710" y2="420" stroke="#0a192f" stroke-width="4"/>
+
+  <!-- Protective Enclosure Net Mesh -->
+  <rect x="90" y="110" width="620" height="310" fill="url(#cricketMesh)"/>
+
+  <!-- Red Leather Cricket Ball with Seam -->
+  <circle cx="400" cy="410" r="18" fill="#b91c1c"/>
+  <ellipse cx="400" cy="410" rx="18" ry="7" fill="none" stroke="#fef08a" stroke-width="2" stroke-dasharray="3 2" transform="rotate(-25 400 410)"/>
+
+  <!-- Top Banner Tag -->
+  <rect x="30" y="30" width="180" height="40" rx="10" fill="#142d50" opacity="0.9"/>
+  <text x="120" y="56" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1">CRICKET NET</text>
+</svg>

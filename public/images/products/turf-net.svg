@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="turfSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#edf6f9"/>
+      <stop offset="100%" stop-color="#d9ecec"/>
+    </linearGradient>
+    <linearGradient id="turfStripes1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b7a43"/>
+      <stop offset="100%" stop-color="#146636"/>
+    </linearGradient>
+    <linearGradient id="turfStripes2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#248f51"/>
+      <stop offset="100%" stop-color="#1a753f"/>
+    </linearGradient>
+    <pattern id="turfMesh" width="14" height="14" patternUnits="userSpaceOnUse">
+      <path d="M 0 0 L 14 14 M 14 0 L 0 14" fill="none" stroke="#164e63" stroke-width="1.2" opacity="0.65"/>
+    </pattern>
+  </defs>
+  <!-- Background Sky -->
+  <rect width="800" height="500" rx="20" fill="url(#turfSky)"/>
+  
+  <!-- Turf Grass Stripes (Mowed Arena Look) -->
+  <rect y="240" width="800" height="40" fill="url(#turfStripes1)"/>
+  <rect y="280" width="800" height="45" fill="url(#turfStripes2)"/>
+  <rect y="325" width="800" height="50" fill="url(#turfStripes1)"/>
+  <rect y="375" width="800" height="55" fill="url(#turfStripes2)"/>
+  <rect y="430" width="800" height="70" fill="url(#turfStripes1)"/>
+
+  <!-- Arena Boundary White Lines -->
+  <line x1="120" y1="280" x2="680" y2="280" stroke="#ffffff" stroke-width="4" opacity="0.85"/>
+  <line x1="80" y1="460" x2="720" y2="460" stroke="#ffffff" stroke-width="5" opacity="0.9"/>
+  <line x1="120" y1="280" x2="80" y2="460" stroke="#ffffff" stroke-width="4" opacity="0.85"/>
+  <line x1="680" y1="280" x2="720" y2="460" stroke="#ffffff" stroke-width="4" opacity="0.85"/>
+
+  <!-- Turf Net Heavy Posts -->
+  <line x1="70" y1="80" x2="70" y2="460" stroke="#0f172a" stroke-width="12" stroke-linecap="round"/>
+  <line x1="730" y1="80" x2="730" y2="460" stroke="#0f172a" stroke-width="12" stroke-linecap="round"/>
+  <line x1="290" y1="95" x2="290" y2="460" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
+  <line x1="510" y1="95" x2="510" y2="460" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- High-Tension Cables -->
+  <line x1="70" y1="95" x2="730" y2="95" stroke="#0f172a" stroke-width="6"/>
+  <line x1="70" y1="435" x2="730" y2="435" stroke="#0f172a" stroke-width="4"/>
+
+  <!-- Full Perimeter Net Mesh -->
+  <rect x="70" y="95" width="660" height="340" fill="url(#turfMesh)"/>
+
+  <!-- White Football on Turf -->
+  <circle cx="580" cy="410" r="24" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+  <polygon points="580,398 591,406 587,419 573,419 569,406" fill="#0f172a"/>
+  <line x1="580" y1="398" x2="580" y2="386" stroke="#0f172a" stroke-width="2"/>
+  <line x1="591" y1="406" x2="602" y2="403" stroke="#0f172a" stroke-width="2"/>
+  <line x1="587" y1="419" x2="596" y2="428" stroke="#0f172a" stroke-width="2"/>
+  <line x1="573" y1="419" x2="564" y2="428" stroke="#0f172a" stroke-width="2"/>
+  <line x1="569" y1="406" x2="558" y2="403" stroke="#0f172a" stroke-width="2"/>
+
+  <!-- Top Banner Tag -->
+  <rect x="30" y="30" width="150" height="40" rx="10" fill="#0f172a" opacity="0.9"/>
+  <text x="105" y="56" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="1">TURF NET</text>
+</svg>

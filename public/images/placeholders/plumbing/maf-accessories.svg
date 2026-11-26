@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradMAFAcc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#133658"/>
+      <stop offset="100%" stop-color="#091c2f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#bgGradMAFAcc)"/>
+  <!-- Adaptor & Valve Graphic -->
+  <rect x="260" y="180" width="280" height="90" rx="16" fill="#0284c7" stroke="#38bdf8" stroke-width="4"/>
+  <rect x="350" y="110" width="100" height="80" rx="8" fill="#e2e8f0"/>
+  <rect x="320" y="80" width="160" height="34" rx="10" fill="#f59e0b"/>
+  <ellipse cx="260" cy="225" rx="20" ry="45" fill="#0369a1"/>
+  <ellipse cx="540" cy="225" rx="20" ry="45" fill="#38bdf8"/>
+  <rect x="40" y="40" width="160" height="36" rx="12" fill="#ffffff" opacity="0.12"/>
+  <text x="120" y="63" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.5">CATEGORY 03</text>
+</svg>

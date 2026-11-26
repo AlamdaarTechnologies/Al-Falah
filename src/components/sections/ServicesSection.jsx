@@ -1,223 +1,144 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowUpRight, Sparkles } from 'lucide-react';
 import { royalBirdnetServices } from '../../data/services';
-import { getServiceInquiryUrl } from '../../utils/whatsapp';
 
-/* ─── constants ─────────────────────────────────────────────────────────── */
-const AUTOPLAY_MS = 4500;
-const TRANSITION_MS = 500;
+const ROTATE_INTERVAL_MS = 3800;
 
-/* ─── helpers ─────────────────────────────────────────────────────────── */
-function waLink(service) {
-  return getServiceInquiryUrl(service.name);
-}
+/**
+ * Main Services Display:
+ * Displays ONLY ONE main service card in the Services section.
+ * Contains multiple service-related images that automatically rotate in a smooth slideshow.
+ * Entire card is clickable to open the dedicated Services listing view.
+ */
+export default function ServicesSection({ onOpenServices }) {
+  const [activeIdx, setActiveIdx] = useState(0);
 
-/* ─── FeaturedCarousel ─────────────────────────────────────────────────── */
-function FeaturedCarousel({ services, active, setActive, paused, setPaused }) {
-  const total = services.length;
+  // Take the key showcase services for image rotation
+  const rotatingServices = royalBirdnetServices.slice(0, 5);
 
-  const next = useCallback(() => {
-    setActive((i) => (i + 1) % total);
-  }, [total, setActive]);
-
-  const prev = () => {
-    setPaused(true);
-    setActive((i) => (i - 1 + total) % total);
-  };
-  const handleNext = () => {
-    setPaused(true);
-    next();
-  };
-
-  /* autoplay */
   useEffect(() => {
-    if (paused) return;
-    const id = setInterval(next, AUTOPLAY_MS);
-    return () => clearInterval(id);
-  }, [paused, next]);
-
-  /* touch swipe */
-  const touchStartX = useRef(null);
-  const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
-  const handleTouchEnd = (e) => {
-    if (touchStartX.current === null) return;
-    const dx = e.changedTouches[0].clientX - touchStartX.current;
-    touchStartX.current = null;
-    if (Math.abs(dx) < 40) return;
-    setPaused(true);
-    if (dx < 0) next(); else setActive((i) => (i - 1 + total) % total);
-  };
+    if (rotatingServices.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % rotatingServices.length);
+    }, ROTATE_INTERVAL_MS);
+    return () => clearInterval(interval);
+  }, [rotatingServices.length]);
 
   return (
-    <div
-      className="relative w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg"
-      style={{ aspectRatio: '16/8' }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      {/* slides */}
-      {services.map((s, i) => (
-        <a
-          key={s.id}
-          href={waLink(s)}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Enquire about ${s.name}`}
-          className="absolute inset-0 block"
-          style={{
-            opacity: i === active ? 1 : 0,
-            transition: `opacity ${TRANSITION_MS}ms ease`,
-            pointerEvents: i === active ? 'auto' : 'none',
-            zIndex: i === active ? 1 : 0,
-          }}
-        >
-          <img
-            src={s.image}
-            alt={s.name}
-            className="absolute inset-0 w-full h-full object-cover"
-            loading={i === 0 ? 'eager' : 'lazy'}
-            fetchPriority={i === active ? 'high' : 'auto'}
-            decoding="async"
-          />
-          {/* gradient */}
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.3) 50%, transparent 100%)' }}
-          />
-          {/* text */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 pb-10 sm:pb-10">
-            <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-white/65 mb-1">
-              Our Services
-            </p>
-            <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white leading-tight">
-              {s.name}
-            </h3>
-            {s.description && (
-              <p className="mt-1 text-xs sm:text-sm text-white/80 leading-snug line-clamp-2 max-w-lg">
-                {s.description}
-              </p>
-            )}
-            <span className="mt-2.5 inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white/90">
-              Enquire on WhatsApp <ArrowUpRight size={13} />
-            </span>
-          </div>
-        </a>
-      ))}
-
-      {/* prev / next arrows */}
-      <button
-        onClick={prev}
-        aria-label="Previous service"
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/20 backdrop-blur-sm hover:bg-black/40 active:bg-black/50 transition-colors"
-      >
-        <ChevronLeft size={20} className="text-white" />
-      </button>
-      <button
-        onClick={handleNext}
-        aria-label="Next service"
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/20 backdrop-blur-sm hover:bg-black/40 active:bg-black/50 transition-colors"
-      >
-        <ChevronRight size={20} className="text-white" />
-      </button>
-
-      {/* dot indicators */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5">
-        {services.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => { setPaused(true); setActive(i); }}
-            aria-label={`Go to slide ${i + 1}`}
-            className="rounded-full transition-all duration-300"
-            style={{
-              width: i === active ? '20px' : '7px',
-              height: '7px',
-              background: i === active ? '#fff' : 'rgba(255,255,255,0.45)',
-            }}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ─── ServiceCard ─────────────────────────────────────────────────────────── */
-function ServiceCard({ service }) {
-  return (
-    <a
-      href={waLink(service)}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Enquire about ${service.name}`}
-      className="group relative flex-shrink-0 rounded-2xl overflow-hidden shadow-md cursor-pointer"
-      style={{ width: '168px', height: '224px' }}
-    >
-      <img
-        src={service.image}
-        alt={service.name}
-        loading="lazy"
-        decoding="async"
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-      {/* gradient */}
-      <div
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 100%)' }}
-      />
-      {/* text */}
-      <div className="absolute bottom-0 left-0 right-0 p-3 pr-10">
-        <p className="text-sm font-bold text-white leading-tight line-clamp-2">{service.name}</p>
-      </div>
-      {/* circular arrow */}
-      <div className="absolute bottom-2.5 right-2.5 flex items-center justify-center w-8 h-8 rounded-full border-2 border-white/60 bg-[#142D50]/60 backdrop-blur-sm group-hover:bg-[#142D50] transition-colors">
-        <ArrowUpRight size={14} className="text-white" />
-      </div>
-    </a>
-  );
-}
-
-/* ─── ServicesSection (main export) ─────────────────────────────────────── */
-export default function ServicesSection() {
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  if (!royalBirdnetServices || royalBirdnetServices.length === 0) return null;
-
-  return (
-    <section className="mt-10 sm:mt-14 pt-8 sm:pt-10 border-t border-slate-200" aria-labelledby="services-heading">
-      {/* heading */}
-      <div className="mb-5 sm:mb-6">
+    <section className="mt-12 sm:mt-16 pt-8 sm:pt-10 border-t border-slate-200/90" aria-labelledby="services-section-heading">
+      {/* Section Header */}
+      <div className="mb-6 sm:mb-8 text-left">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-50 text-navy-800 text-xs font-semibold uppercase tracking-wider mb-2 border border-navy-100">
+          <Sparkles size={13} className="text-gold-500" />
+          <span>Professional Installation</span>
+        </div>
         <h2
-          id="services-heading"
-          className="text-2xl sm:text-3xl font-bold tracking-tight"
-          style={{ color: '#142D50' }}
+          id="services-section-heading"
+          className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-navy-900"
         >
           Our Services
         </h2>
-        <p className="mt-1 text-sm text-slate-500">
-          Tap any service to enquire directly on WhatsApp
+        <p className="mt-1.5 text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed">
+          Certified on-site netting, pigeon spikes, sports enclosures, and safety solutions executed by experienced technicians.
         </p>
       </div>
 
-      {/* featured carousel */}
-      <FeaturedCarousel
-        services={royalBirdnetServices}
-        active={active}
-        setActive={setActive}
-        paused={paused}
-        setPaused={setPaused}
-      />
-
-      {/* horizontal scrollable service cards */}
+      {/* SINGLE MAIN SERVICES CARD WITH ROTATING IMAGES */}
       <div
-        className="mt-5 sm:mt-6 flex gap-3 sm:gap-4 overflow-x-auto pb-2"
-        style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
-        onScroll={() => setPaused(true)}
+        role="button"
+        tabIndex={0}
+        onClick={onOpenServices}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onOpenServices?.();
+          }
+        }}
+        aria-label="View our complete services listing"
+        className="group relative w-full rounded-[26px] sm:rounded-[34px] overflow-hidden cursor-pointer bg-[#0f2444] shadow-[0_16px_40px_rgba(8,31,65,0.12)] hover:shadow-[0_24px_55px_rgba(8,31,65,0.2)] transition-all duration-300 hover:-translate-y-1 border border-white/80 focus:outline-none focus-visible:ring-4 focus-visible:ring-sky-400"
       >
-        {royalBirdnetServices.map((s) => (
-          <ServiceCard key={s.id} service={s} />
-        ))}
-        {/* trailing spacer */}
-        <div className="flex-shrink-0 w-1" />
+        {/* Rotating Image Background Container */}
+        <div className="relative w-full aspect-[16/10] sm:aspect-[21/9] min-h-[300px] sm:min-h-[360px] overflow-hidden">
+          {rotatingServices.map((service, index) => (
+            <div
+              key={service.id || index}
+              className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+              style={{
+                opacity: index === activeIdx ? 1 : 0,
+                zIndex: index === activeIdx ? 1 : 0,
+              }}
+            >
+              <img
+                src={service.image}
+                alt={service.name}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
+          ))}
+
+          {/* Deep Navy/Black Gradient Overlay for Text Readability */}
+          <div
+            className="absolute inset-0 z-10 pointer-events-none"
+            style={{
+              background:
+                'linear-gradient(to top, rgba(10,25,50,0.92) 0%, rgba(10,25,50,0.65) 45%, rgba(10,25,50,0.2) 100%)',
+            }}
+          />
+
+          {/* Card Content Overlay */}
+          <div className="absolute inset-0 z-20 flex flex-col justify-between p-6 sm:p-8 md:p-10">
+            {/* Top Tag & Slide Indicators */}
+            <div className="flex items-center justify-between gap-4">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs sm:text-sm font-semibold tracking-wide border border-white/30 shadow-sm">
+                <span>Featured Services</span>
+                <span className="text-white/60">•</span>
+                <span className="text-gold-300 font-bold">{activeIdx + 1}/{rotatingServices.length}</span>
+              </span>
+
+              {/* Progress Dots */}
+              <div className="flex items-center gap-1.5">
+                {rotatingServices.map((_, i) => (
+                  <span
+                    key={i}
+                    className="h-1.5 rounded-full transition-all duration-500"
+                    style={{
+                      width: i === activeIdx ? '22px' : '6px',
+                      background: i === activeIdx ? '#f0b429' : 'rgba(255,255,255,0.4)',
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Bottom Content Area */}
+            <div className="max-w-xl">
+              <div className="transition-all duration-500">
+                <p className="text-xs sm:text-sm font-medium uppercase tracking-widest text-sky-200 mb-1">
+                  Currently Viewing
+                </p>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+                  {rotatingServices[activeIdx]?.name}
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-200 line-clamp-2 leading-relaxed">
+                  {rotatingServices[activeIdx]?.description}
+                </p>
+              </div>
+
+              {/* Action Call to Action */}
+              <div className="mt-5 sm:mt-6 flex items-center gap-3">
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-navy-900 text-sm font-bold shadow-md group-hover:bg-gold-400 group-hover:text-slate-950 transition-colors">
+                  <span>View All Services</span>
+                  <ArrowUpRight size={17} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
+                <span className="text-xs sm:text-sm text-slate-300 font-medium hidden sm:inline">
+                  Click to browse full services catalogue
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

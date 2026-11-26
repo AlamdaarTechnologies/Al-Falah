@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradMAF" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f2b48"/>
+      <stop offset="100%" stop-color="#081829"/>
+    </linearGradient>
+    <linearGradient id="metalMAF" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#bgGradMAF)"/>
+  <circle cx="400" cy="220" r="130" fill="none" stroke="url(#metalMAF)" stroke-width="26" opacity="0.9"/>
+  <circle cx="400" cy="220" r="80" fill="none" stroke="#ffffff" stroke-width="12" opacity="0.8"/>
+  <circle cx="400" cy="220" r="35" fill="url(#metalMAF)"/>
+  <!-- Bolt Holes Around Flange -->
+  <circle cx="400" cy="115" r="9" fill="#ffffff"/>
+  <circle cx="400" cy="325" r="9" fill="#ffffff"/>
+  <circle cx="295" cy="220" r="9" fill="#ffffff"/>
+  <circle cx="505" cy="220" r="9" fill="#ffffff"/>
+  <circle cx="325" cy="145" r="9" fill="#ffffff"/>
+  <circle cx="475" cy="145" r="9" fill="#ffffff"/>
+  <circle cx="325" cy="295" r="9" fill="#ffffff"/>
+  <circle cx="475" cy="295" r="9" fill="#ffffff"/>
+  <!-- Category Tag -->
+  <rect x="40" y="40" width="160" height="36" rx="12" fill="#ffffff" opacity="0.12"/>
+  <text x="120" y="63" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.5">CATEGORY 02</text>
+</svg>

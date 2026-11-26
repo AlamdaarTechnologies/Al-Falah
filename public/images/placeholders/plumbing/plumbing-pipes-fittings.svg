@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGradPipes" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142d50"/>
+      <stop offset="100%" stop-color="#0a192f"/>
+    </linearGradient>
+    <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#e2e8f0"/>
+      <stop offset="70%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="copperGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="24" fill="url(#bgGradPipes)"/>
+  
+  <!-- Subtle Grid Accent -->
+  <path d="M0 100h800M0 200h800M0 300h800M0 400h800M100 0v500M200 0v500M300 0v500M400 0v500M500 0v500M600 0v500M700 0v500" stroke="#ffffff" stroke-width="1" opacity="0.04"/>
+
+  <!-- UPVC Pipe Cluster -->
+  <rect x="180" y="140" width="440" height="45" rx="8" fill="url(#pipeGrad)"/>
+  <rect x="140" y="210" width="520" height="55" rx="8" fill="url(#pipeGrad)"/>
+  <rect x="200" y="290" width="400" height="40" rx="8" fill="url(#pipeGrad)"/>
+  
+  <!-- Pipe Collar Joints -->
+  <rect x="240" y="135" width="22" height="55" rx="4" fill="#cbd5e1" stroke="#334155" stroke-width="2"/>
+  <rect x="520" y="135" width="22" height="55" rx="4" fill="#cbd5e1" stroke="#334155" stroke-width="2"/>
+  <rect x="280" y="205" width="26" height="65" rx="4" fill="#cbd5e1" stroke="#334155" stroke-width="2"/>
+  <rect x="490" y="205" width="26" height="65" rx="4" fill="#cbd5e1" stroke="#334155" stroke-width="2"/>
+
+  <!-- Brass Elbow Fitting Accent -->
+  <path d="M 590 280 L 650 280 A 40 40 0 0 1 690 320 L 690 380" fill="none" stroke="url(#copperGrad)" stroke-width="28" stroke-linecap="round"/>
+  <circle cx="590" cy="280" r="18" fill="url(#copperGrad)"/>
+  <circle cx="690" cy="380" r="18" fill="url(#copperGrad)"/>
+
+  <!-- Category Tag Banner -->
+  <rect x="40" y="40" width="160" height="36" rx="12" fill="#ffffff" opacity="0.12"/>
+  <text x="120" y="63" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.5">CATEGORY 01</text>
+</svg>
